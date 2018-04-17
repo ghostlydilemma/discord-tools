@@ -124,10 +124,10 @@ li:not(.logo){
     align-items: center;
     margin-top: 2%;
     padding: 1%;
-    border-radius: 10px;
-    border: 1px solid red;
+    border-bottom: 5px solid black;
 }
 
 .arrow{
     font-size: 30px;
+    cursor: pointer;
 }
