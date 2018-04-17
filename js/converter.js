@@ -6,7 +6,7 @@ $('document').ready(function () {
             if (classes[i] == 'toolContainer') {
                 classes[i] = '.toolContainerInner';
             } else if (classes[i] == 'open') {
-                console.log('test');
+                console.log('test2');
             } else {
                 classes[i] = `.${classes[i]}`;
             }
