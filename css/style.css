@@ -1,0 +1,133 @@
+/* Fonts */
+
+h1, h2, li.logo, .arrow{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+p, li:not(.logo){
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+/* Margins */
+
+* {
+    margin: 0;
+}
+
+main{
+    margin: 120px 5% 0 5%;
+}
+
+a, li:not(.logo){
+    text-decoration: none;
+    color: black;
+    transition: 200ms color;
+    cursor: pointer;
+}
+
+a.internal{
+    color: #ff3333;
+}
+
+a.external{
+    color: #80b3ff;
+}
+
+a:hover, li:not(.logo):hover{
+    color: #D81B60;
+}
+
+a:active { outline: 0; }  
+a:focus{ -moz-outline-style: none; }
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    padding: 1%;
+    border-radius: 10px;
+    width: 90%;
+    top: 10px;
+    /* background-color: rgba(255,0,0,0.20); */
+    background-color: rgba(240, 240, 240, 0.93);
+    border-bottom: 2px solid grey;
+}
+
+li{
+    list-style-type: none;
+    cursor: pointer;
+    flex-grow: 0.1;
+}
+
+li:not(.logo){
+    flex-grow: 2;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.logo{
+    font-size: 30px;
+}
+
+.button{
+    border: 3px solid #D81B60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    width: 100px;
+    transition: 200ms background-color;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #D81B60;
+}
+
+.middleBox, .rightBox{
+    margin-left: 2%;
+}
+
+.middleBox{
+    align-self: flex-end;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 18;
+}
+
+.externalLogo img{
+    width: 40px;
+    position: relative;
+    margin-left: -63px;
+    margin-right: 25px;
+    margin-bottom: 5px;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.flexGrow{
+    flex-grow: 100;
+}
+
+.toolContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2%;
+    padding: 1%;
+    border-radius: 10px;
+    border: 1px solid red;
+}
+
+.arrow{
+    font-size: 30px;
+}
