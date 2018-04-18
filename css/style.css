@@ -28,6 +28,20 @@ main{
     margin: 120px 5% 0 5%;
 }
 
+.mainWrap{
+    display: flex;
+    flex-direction: row;
+    width: 200vw;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.home, .info{
+    width: 100vw;
+}
+
 a, li:not(.logo){
     text-decoration: none;
     color: black;
@@ -69,9 +83,12 @@ nav ul{
     border-radius: 10px;
     width: 90%;
     top: 10px;
-    /* background-color: rgba(255,0,0,0.20); */
     background-color: rgba(240, 240, 240, 0.93);
     border-bottom: 2px solid grey;
+}
+
+ul.components{
+    padding: 0;
 }
 
 li{
@@ -112,6 +129,10 @@ li:not(.logo){
     margin-left: 2%;
 }
 
+.rightBox a:focus{
+    outline: 0;
+}
+
 .middleBox{
     align-self: flex-end;
     margin-bottom: 5px;
@@ -146,15 +167,12 @@ li:not(.logo){
 .arrow{
     font-size: 30px;
     cursor: pointer;
-    animation: arrowAnimClose 200ms;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+    transition: transform 200ms;
+    transform: rotateX(0deg);
 }
 
 .arrow.upsidedown {
-  animation: arrowAnimOpen 200ms;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+    transform: rotateX(180deg);
 }
 
 .toolContainerInner{
@@ -188,26 +206,4 @@ textarea.output{
     border: none;
     background-color: rgba(0,0,0,0.02);
     resize: vertical;
-}
-
-@keyframes arrowAnimOpen {
-  from {
-    -moz-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-  }
-  to {
-    -moz-transform: rotateX(180deg);
-    transform: rotateX(180deg);
-  }
-}
-
-@keyframes arrowAnimClose {
-  from {
-    -moz-transform: rotateX(180deg);
-    transform: rotateX(180deg);
-  }
-  to {
-    -moz-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-  }
 }

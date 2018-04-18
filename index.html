@@ -26,8 +26,8 @@
                         Discord Tools
                     </li>
                     <div class='middleBox'>
-                        <li>Home</li>
-                        <li>Info</li>
+                        <li onclick="moveHome();">Home</li>
+                        <li onclick="moveInfo();">Info</li>
                         <div class='flexGrow'></div>
                     </div>
                     <div class='rightBox'>
@@ -45,46 +45,67 @@
                 </ul>
             </nav>
         </header>
-        <main>
-            <p>This is just a little collection of
-                <a class='external' href='https://discordapp.com/'>Discord</a> Tools.
-                <br>
-            </p>
-            <div class='tool'>
-                <div class='toolContainer emojiText'>
-                    <h1>Emoji Text</h1>
-                    <span class='arrow'>⇓</span>
-                </div>
-                <div class='toolContainerInner emojiText'>
-                    <div class='converter'>
-                        <p>Convert your Text into fancey 🇪 🇲 🇴 🇯 🇮 🇹 🇪 🇽 🇹</p>
-                        <textarea name="emojiText" id="emojiText" rows="1" class='input'></textarea>
-                        <textarea name="emojiTextRes" id="emojiTextRes" rows="12" class='output'></textarea>
-                        <div class='button' data-clipboard-target="#emojiTextRes">Copy</div>
-                        <p>Characters:
-                            <span class='characterCount'>0</span>
-                        </p>
+        <div class="mainWrap">
+            <main class='home active'>
+                <p>This is just a little collection of
+                    <a class='external' href='https://discordapp.com/'>Discord</a> Tools.
+                    <br>
+                </p>
+                <div class='tool'>
+                    <div class='toolContainer emojiText'>
+                        <h1>Emoji Text</h1>
+                        <span class='arrow'>⇓</span>
+                    </div>
+                    <div class='toolContainerInner emojiText'>
+                        <div class='converter'>
+                            <p>Convert your Text into fancey 🇪 🇲 🇴 🇯 🇮 🇹 🇪 🇽 🇹</p>
+                            <textarea name="emojiText" id="emojiText" rows="1" class='input'></textarea>
+                            <textarea name="emojiTextRes" id="emojiTextRes" rows="12" class='output'></textarea>
+                            <div class='button' data-clipboard-target="#emojiTextRes">Copy</div>
+                            <p>Characters:
+                                <span class='characterCount'>0</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="tool">
-                <div class='toolContainer clappify'>
-                    <h1>Can 👏 you 👏 clap 👏 it 👏 ?</h1>
-                    <span class='arrow'>⇓</span>
-                </div>
-                <div class='toolContainerInner clappify'>
-                    <div class='converter'>
-                        <p>Add 👏 some 👏 clap 👏 to 👏 your 👏 text 👏 !</p>
-                        <textarea name="clappify" id="clappify" rows="1" class='input'></textarea>
-                        <textarea name="clappifyRes" id="clappifyRes" rows="12" class='output'></textarea>
-                        <div class='button' data-clipboard-target="#clappifyRes">Copy</div>
-                        <p>Characters:
-                            <span class='characterCount'>0</span>
-                        </p>
+                <div class="tool">
+                    <div class='toolContainer clappify'>
+                        <h1>Can 👏 you 👏 clap 👏 it 👏 ?</h1>
+                        <span class='arrow'>⇓</span>
+                    </div>
+                    <div class='toolContainerInner clappify'>
+                        <div class='converter'>
+                            <p>Add 👏 some 👏 clap 👏 to 👏 your 👏 text 👏 !</p>
+                            <textarea name="clappify" id="clappify" rows="1" class='input'></textarea>
+                            <textarea name="clappifyRes" id="clappifyRes" rows="12" class='output'></textarea>
+                            <div class='button' data-clipboard-target="#clappifyRes">Copy</div>
+                            <p>Characters:
+                                <span class='characterCount'>0</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+            <main class="info">
+                <p>Discord Tools, a project by
+                    <a href='https://github.com/GhostlyDilemma' class='external'>Ghostly Dilemma</a>
+                    <br/> External Libraries used:
+                    <ul class="components">
+                        <li>
+                            <a href="https://github.com/juliangarnier/anime" class="external">Anime JS</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/jquery/jquery" class="external">jQuery</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/zenorocha/clipboard.js/" class="external">Clipboard JS</a>
+                        </li>
+                    </ul>
+                    The GitHub Repo for the project:
+                    <a href="https://github.com/GhostlyDilemma/Discord-Tools" class="external">Here</a>
+                </p>
+            </main>
+        </div>
     </body>
 
 </html>

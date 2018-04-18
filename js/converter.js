@@ -44,9 +44,8 @@ $('document').ready(function () {
 
     $('#clappify').on('keyup', function () {
         $('#clappifyRes').val(clappify($(this).val()));
-        console.log(clappify($(this).val()));
         $('.clappify .characterCount').text(characterCount('#clappifyRes'));
-    })
+    });
 
     new ClipboardJS('.button');
 
@@ -184,7 +183,6 @@ function toolContainerAnim(el, state) {
 function findInner(el) {
     let selectorArray = el.parent().attr('class').split(" ");
     for (let i = 0; i < selectorArray.length; i++) {
-
         if (selectorArray[i] == 'toolContainer') {
             selectorArray[i] = '.toolContainerInner';
         } else {
@@ -192,4 +190,28 @@ function findInner(el) {
         }
     }
     return selectorArray.join("");
+}
+
+function moveInfo() {
+    if (!$('.info').hasClass('active')) {
+        let moveInfo = anime({
+            targets: 'main',
+            translateX: '-1920px',
+            easing: 'easeInOutExpo',
+            elasticity: 300,
+            complete: function () { $('.info').addClass('active'); $('.home').removeClass('active'); }
+        });
+    }
+}
+
+function moveHome() {
+    if (!$('.home').hasClass('active')) {
+        let moveInfo = anime({
+            targets: 'main',
+            translateX: 0,
+            easing: 'easeInOutExpo',
+            elasticity: 300,
+            complete: function () { $('.info').removeClass('active'); $('.main').addClass('active'); }
+        });
+    }
 }
