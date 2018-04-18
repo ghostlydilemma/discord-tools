@@ -50,6 +50,11 @@ a:hover, li:not(.logo):hover{
 a:active { outline: 0; }  
 a:focus{ -moz-outline-style: none; }
 
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
 nav{
     display: flex;
     flex-direction: row;
@@ -153,7 +158,6 @@ li:not(.logo){
 }
 
 .toolContainerInner{
-    /* border: 2px solid black; */
     background-color: rgba(0,0,0,0.02);
     overflow-y: auto;
     height: 0;
@@ -173,7 +177,6 @@ textarea{
     border-bottom: 3px solid black;
     resize: none;
     transition: 200ms border-color;
-    /* height: 77px; */
 }
 
 textarea:focus, textarea:hover{

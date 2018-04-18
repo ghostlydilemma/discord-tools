@@ -50,19 +50,38 @@
                 <a class='external' href='https://discordapp.com/'>Discord</a> Tools.
                 <br>
             </p>
-            <div class='toolContainer emojiText'>
-                <h1>Emoji Text</h1>
-                <span class='arrow'>⇓</span>
+            <div class='tool'>
+                <div class='toolContainer emojiText'>
+                    <h1>Emoji Text</h1>
+                    <span class='arrow'>⇓</span>
+                </div>
+                <div class='toolContainerInner emojiText'>
+                    <div class='converter'>
+                        <p>Convert your Text into fancey 🇪 🇲 🇴 🇯 🇮 🇹 🇪 🇽 🇹</p>
+                        <textarea name="emojiText" id="emojiText" rows="1" class='input'></textarea>
+                        <textarea name="emojiTextRes" id="emojiTextRes" rows="12" class='output'></textarea>
+                        <div class='button' data-clipboard-target="#emojiTextRes">Copy</div>
+                        <p>Characters:
+                            <span class='characterCount'></span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class='toolContainerInner emojiText'>
-                <div class='converter'>
-                    <p>Convert your Text into fancey 🇪 🇲 🇴 🇯 🇮 🇹 🇪 🇽 🇹</p>
-                    <textarea name="emojiText" id="emojiText" rows="1"></textarea>
-                    <textarea name="emojiTextRes" id="emojiTextRes" rows="12" class='output'></textarea>
-                    <div class='button' data-clipboard-target="#emojiTextRes">Copy</div>
-                    <p>Characters:
-                        <span class='characterCount'></span>
-                    </p>
+            <div class="tool">
+                <div class='toolContainer clappify'>
+                    <h1>Can 👏 you 👏 clap 👏 it 👏 ?</h1>
+                    <span class='arrow'>⇓</span>
+                </div>
+                <div class='toolContainerInner clappify'>
+                    <div class='converter'>
+                        <p>Add 👏 some 👏 clap 👏 to 👏 your 👏 text 👏 !</p>
+                        <textarea name="clappify" id="clappify" rows="1" class='input'></textarea>
+                        <textarea name="clappifyRes" id="clappifyRes" rows="12" class='output'></textarea>
+                        <div class='button' data-clipboard-target="#clappifyRes">Copy</div>
+                        <p>Characters:
+                            <span class='characterCount'></span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </main>

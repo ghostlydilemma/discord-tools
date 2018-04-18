@@ -28,16 +28,24 @@ $('document').ready(function () {
         this.style.height = (this.scrollHeight) + 'px';
     });
 
-    $('#emojiText').on('keyup', function () {
-        $('#emojiTextRes').val(emojiText($(this).val()));
-        let characters = characterCount('#emojiTextRes');
-        $('.emojiText .characterCount').text(characters);
-        if (characters > 2000) {
-            $('.emojiText .characterCount').css('color', '#F44336');
+    $('textarea.input').on('keyup', function () {
+        let $count = $(this).parent().find('span');
+        if ($count.text() > 2000) {
+            $count.css('color', '#F44336');
         } else {
-            $('.emojiText .characterCount').css('color', 'black');
+            $count.css('color', 'black');
         }
     });
+
+    $('#emojiText').on('keyup', function () {
+        $('#emojiTextRes').val(emojiText($(this).val()));
+        $('.emojiText .characterCount').text(characterCount('#emojiTextRes'));
+    });
+
+    $('clappify').on('keyup', function () {
+        $('#clappify').val(clappify($(this).val()));
+
+    })
 
     new ClipboardJS('.button');
 
@@ -105,6 +113,10 @@ function emojiText(input) {
         }
         return readyResult;
     }
+}
+
+function clappify(input) {
+
 }
 
 function isNumeric(n) {
