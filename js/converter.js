@@ -42,18 +42,24 @@ $('document').ready(function () {
         $('.emojiText .characterCount').text(characterCount('#emojiTextRes'));
     });
 
-    $('clappify').on('keyup', function () {
-        $('#clappify').val(clappify($(this).val()));
-
+    $('#clappify').on('keyup', function () {
+        $('#clappifyRes').val(clappify($(this).val()));
+        console.log(clappify($(this).val()));
+        $('.clappify .characterCount').text(characterCount('#clappifyRes'));
     })
 
     new ClipboardJS('.button');
 
     $(window).on('resize', function () {
-        let toolContainerCorrectAnim = anime({
-            targets: '.toolContainerInner',
-            height: $('.toolContainerInner .converter').height() + 40,
-            easing: 'easeInOutQuart'
+        $('.toolContainerInner').each(function () {
+            console.log(this);
+            if ($(this).hasClass('open')) {
+                let toolContainerCorrectAnim = anime({
+                    targets: this,
+                    height: $('.toolContainerInner .converter').height() + 40,
+                    easing: 'easeInOutQuart'
+                });
+            }
         });
     });
 });
@@ -116,7 +122,15 @@ function emojiText(input) {
 }
 
 function clappify(input) {
-
+    input = input.split(" ");
+    let clappifiedInput = "";
+    for (let i = 0; i < input.length; i++) {
+        clappifiedInput += input[i];
+        if (i < input.length - 1) {
+            clappifiedInput += " :clap: ";
+        }
+    }
+    return clappifiedInput;
 }
 
 function isNumeric(n) {

@@ -168,6 +168,7 @@ li:not(.logo){
 }
 
 textarea{
+    color: black;
     margin-top: 1%;
     width: 100%;
     line-height: 20px;
