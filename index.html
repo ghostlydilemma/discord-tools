@@ -12,9 +12,10 @@
         <link href='https://fonts.googleapis.com/css?family=Lato|Montserrat' rel='stylesheet'>
         <link rel='stylesheet' href='css/style.css'>
 
-        <script src='js/anime.min.js'></script>
-        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src='node_modules/animejs/anime.js'></script>
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
         <script src='js/converter.js'></script>
+        <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
     </head>
 
     <body>
@@ -54,7 +55,15 @@
                 <span class='arrow'>⇓</span>
             </div>
             <div class='toolContainerInner emojiText'>
-
+                <div class='converter'>
+                    <p>Convert your Text into fancey 🇪 🇲 🇴 🇯 🇮 🇹 🇪 🇽 🇹</p>
+                    <textarea name="emojiText" id="emojiText" rows="1"></textarea>
+                    <textarea name="emojiTextRes" id="emojiTextRes" rows="12" class='output'></textarea>
+                    <div class='button' data-clipboard-target="#emojiTextRes">Copy</div>
+                    <p>Characters:
+                        <span class='characterCount'></span>
+                    </p>
+                </div>
             </div>
         </main>
     </body>

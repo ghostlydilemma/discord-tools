@@ -1,0 +1,16 @@
+{
+  "name": "discordtools2",
+  "version": "1.0.0",
+  "description": "Some handy Discord Tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "animejs": "^2.2.0",
+    "clipboard": "^2.0.0",
+    "jquery": "^3.3.1"
+  }
+}

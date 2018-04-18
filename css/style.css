@@ -1,6 +1,6 @@
 /* Fonts */
 
-h1, h2, li.logo, .arrow{
+h1, h2, li.logo, .arrow, textarea, .button{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
@@ -8,6 +8,14 @@ h1, h2, li.logo, .arrow{
 p, li:not(.logo){
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
+}
+
+::selection{
+    background-color: rgba(0,0,0,0.2);
+}
+
+::-moz-selection{
+    background-color: rgba(0,0,0,0.2);
 }
 
 /* Margins */
@@ -84,12 +92,15 @@ li:not(.logo){
     align-items: center;
     height: 46px;
     width: 100px;
-    transition: 200ms background-color;
+    margin: 1% 0;
+    color: #D81B60;
+    transition: 200ms background-color, 200ms color;
     cursor: pointer;
 }
 
 .button:hover{
     background-color: #D81B60;
+    color: white;
 }
 
 .middleBox, .rightBox{
@@ -130,4 +141,69 @@ li:not(.logo){
 .arrow{
     font-size: 30px;
     cursor: pointer;
+    animation: arrowAnimClose 200ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.arrow.upsidedown {
+  animation: arrowAnimOpen 200ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.toolContainerInner{
+    /* border: 2px solid black; */
+    background-color: rgba(0,0,0,0.02);
+    overflow-y: auto;
+    height: 0;
+}
+
+.toolContainerInner .converter{
+    margin: 1% 1% 0 1%;
+}
+
+textarea{
+    margin-top: 1%;
+    width: 100%;
+    line-height: 20px;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 3px solid black;
+    resize: none;
+    transition: 200ms border-color;
+    /* height: 77px; */
+}
+
+textarea:focus, textarea:hover{
+    border-color:#D81B60;
+}
+
+textarea.output{
+    border: none;
+    background-color: rgba(0,0,0,0.02);
+    resize: vertical;
+}
+
+@keyframes arrowAnimOpen {
+  from {
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
+  to {
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes arrowAnimClose {
+  from {
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+  }
+  to {
+    -moz-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+  }
 }
