@@ -1,4 +1,6 @@
 $('document').ready(function () {
+    document.styleSheets[2].disabled = true;
+
     $('.toolContainer span').on('click', function () {
         let open;
         let selector = findInner($(this));
@@ -33,7 +35,12 @@ $('document').ready(function () {
         if ($count.text() > 2000) {
             $count.css('color', '#F44336');
         } else {
-            $count.css('color', 'black');
+            if ($('body').hasClass('dark')) {
+                $count.css('color', 'white');
+            } else {
+                $count.css('color', 'black');
+            }
+
         }
     });
 
@@ -213,5 +220,17 @@ function moveHome() {
             elasticity: 300,
             complete: function () { $('.info').removeClass('active'); $('.main').addClass('active'); }
         });
+    }
+}
+
+function switchCSS(mode) {
+    if (!$('body').hasClass('dark')) {
+        document.styleSheets[2].disabled = false;
+        $('body').addClass('dark');
+        $('#themeSwitch').text('White Mode');
+    } else {
+        document.styleSheets[2].disabled = true;
+        $('body').removeClass('dark');
+        $('#themeSwitch').text('Dark Mode');
     }
 }

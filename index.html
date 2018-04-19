@@ -10,7 +10,8 @@
         <meta name='description' content='Get your coolest Discord Tools today!'>
 
         <link href='https://fonts.googleapis.com/css?family=Lato|Montserrat' rel='stylesheet'>
-        <link rel='stylesheet' href='css/style.css'>
+        <link rel='stylesheet' href='css/style.css' type="text/css">
+        <link rel="stylesheet" href="css/styledark.css" type="text/css" />
 
         <script src='node_modules/animejs/anime.js'></script>
         <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -28,6 +29,7 @@
                     <div class='middleBox'>
                         <li onclick="moveHome();">Home</li>
                         <li onclick="moveInfo();">Info</li>
+                        <li id='themeSwitch' onclick="switchCSS();">Dark Mode</li>
                         <div class='flexGrow'></div>
                     </div>
                     <div class='rightBox'>
@@ -89,19 +91,21 @@
             <main class="info">
                 <p>Discord Tools, a project by
                     <a href='https://github.com/GhostlyDilemma' class='external'>Ghostly Dilemma</a>
-                    <br/> External Libraries used:
-                    <ul class="components">
-                        <li>
-                            <a href="https://github.com/juliangarnier/anime" class="external">Anime JS</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/jquery/jquery" class="external">jQuery</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/zenorocha/clipboard.js/" class="external">Clipboard JS</a>
-                        </li>
-                    </ul>
-                    The GitHub Repo for the project:
+                    <br/>
+                    <br/>External Libraries used:</p>
+                <ul class="components">
+                    <li>
+                        <a href="https://github.com/juliangarnier/anime" class="external">Anime JS</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/jquery/jquery" class="external">jQuery</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/zenorocha/clipboard.js/" class="external">Clipboard JS</a>
+                    </li>
+                </ul>
+                <p>
+                    <br/> The GitHub Repo for the project:
                     <a href="https://github.com/GhostlyDilemma/Discord-Tools" class="external">Here</a>
                 </p>
             </main>

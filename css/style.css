@@ -5,6 +5,10 @@ h1, h2, li.logo, .arrow, textarea, .button{
     font-weight: 400;
 }
 
+*:not(.toolContainerInner):not(.mainWrap):not(main){
+    transition: all 200ms;
+}
+
 p, li:not(.logo){
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
@@ -63,7 +67,6 @@ a:hover, li:not(.logo):hover{
 
 a:active { outline: 0; }  
 a:focus{ -moz-outline-style: none; }
-
 
 textarea:focus, input:focus{
     outline: none;

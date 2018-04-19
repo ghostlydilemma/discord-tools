@@ -1,0 +1,37 @@
+body{
+    background-color: #212121;
+    color: white;
+}
+
+textarea, .toolContainer{
+    border-color: white;
+    color: white;
+}
+
+::selection{
+    background-color: rgba(255,255,255,0.2);
+}
+
+::-moz-selection{
+    background-color: rgba(255,255,255,0.2);
+}
+
+nav ul{
+    background-color: rgba(20,20,20,0.8);
+}
+
+a, li:not(.logo), span{
+    color: white;
+}
+
+a.internal{
+    color: #ff3333;
+}
+
+a.external{
+    color: #80b3ff;
+}
+
+a:hover, li:not(.logo):hover, nav span:hover{
+    color: #D81B60;
+}
