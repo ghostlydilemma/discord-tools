@@ -1,7 +1,7 @@
-$('document').ready(function () {
+$(document).ready(function () {
     document.styleSheets[2].disabled = true;
 
-    $('.toolContainer span').on('click', function () {
+    $('.toolContainer').on('click', function () {
         let open;
         let selector = findInner($(this));
         if ($(selector).attr('class').indexOf('open') != -1) {
@@ -9,7 +9,7 @@ $('document').ready(function () {
                 targets: selector,
                 height: 0,
                 easing: 'easeInOutQuart',
-                complete: toolContainerAnim($(this), 'close')
+                complete: toolContainerAnim($(this).find('span'), 'close')
             });
             $(selector).removeClass('open');
         } else {
@@ -17,7 +17,7 @@ $('document').ready(function () {
                 targets: selector,
                 height: $(`${selector} .converter`).height() + 40,
                 easing: 'easeInOutQuart',
-                complete: toolContainerAnim($(this), 'open')
+                complete: toolContainerAnim($(this).find('span'), 'open')
             });
             $(selector).addClass('open');
         }
@@ -67,7 +67,11 @@ $('document').ready(function () {
                 });
             }
         });
+        moveFix();
     });
+
+    let url = window.location.href.split('?')[1]; // tab-1
+    $(`.toolContainer.${url} .arrow`).click();
 });
 
 function emojiText(input) {
@@ -188,7 +192,7 @@ function toolContainerAnim(el, state) {
 }
 
 function findInner(el) {
-    let selectorArray = el.parent().attr('class').split(" ");
+    let selectorArray = el.attr('class').split(" ");
     for (let i = 0; i < selectorArray.length; i++) {
         if (selectorArray[i] == 'toolContainer') {
             selectorArray[i] = '.toolContainerInner';
@@ -199,38 +203,67 @@ function findInner(el) {
     return selectorArray.join("");
 }
 
-function moveInfo() {
+function move() {
     if (!$('.info').hasClass('active')) {
         let moveInfo = anime({
             targets: 'main',
-            translateX: '-1920px',
+            translateX: 0 - $(window).width(),
             easing: 'easeInOutExpo',
             elasticity: 300,
-            complete: function () { $('.info').addClass('active'); $('.home').removeClass('active'); }
+            complete: changeClass('info')
         });
-    }
-}
-
-function moveHome() {
-    if (!$('.home').hasClass('active')) {
+    } else {
         let moveInfo = anime({
             targets: 'main',
             translateX: 0,
             easing: 'easeInOutExpo',
             elasticity: 300,
-            complete: function () { $('.info').removeClass('active'); $('.main').addClass('active'); }
+            complete: changeClass('home')
+        });
+    }
+}
+
+function moveFix() {
+    if ($('.info').hasClass('active')) {
+        let moveInfo = anime({
+            targets: 'main',
+            translateX: 0 - $(window).width(),
+            easing: 'easeInOutExpo',
+            elasticity: 300
+        });
+    } else {
+        let moveInfo = anime({
+            targets: 'main',
+            translateX: 0,
+            easing: 'easeInOutExpo',
+            elasticity: 300
         });
     }
 }
 
 function switchCSS(mode) {
-    if (!$('body').hasClass('dark')) {
+    if (document.styleSheets[2].disabled == true) {
         document.styleSheets[2].disabled = false;
-        $('body').addClass('dark');
         $('#themeSwitch').text('White Mode');
     } else {
         document.styleSheets[2].disabled = true;
-        $('body').removeClass('dark');
         $('#themeSwitch').text('Dark Mode');
+    }
+}
+
+function changeClass(state) {
+    if (state == 'info') {
+        $('.info').addClass('active');
+        $('.home').removeClass('active');
+        $('body').css('overflow-y', 'hidden');
+        $('html, body').stop().animate({
+            scrollTop: 0
+        }, 1000, 'swing', function () {
+            console.log('test');
+        })
+    } else {
+        $('.home').addClass('active');
+        $('.info').removeClass('active');
+        $('body').css('overflow-y', 'auto');
     }
 }
