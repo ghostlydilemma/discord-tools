@@ -65,9 +65,6 @@ a:hover, li:not(.logo):hover{
     color: #D81B60;
 }
 
-a:active { outline: 0; }  
-a:focus{ -moz-outline-style: none; }
-
 textarea:focus, input:focus{
     outline: none;
 }
@@ -96,11 +93,10 @@ ul.components{
 
 li{
     list-style-type: none;
-    cursor: pointer;
-    flex-grow: 0.1;
 }
 
-li:not(.logo){
+nav li:not(.logo){
+    cursor: pointer;
     flex-grow: 2;
     font-size: 16px;
     text-transform: uppercase;
@@ -132,7 +128,7 @@ li:not(.logo){
     margin-left: 2%;
 }
 
-.rightBox a:focus{
+a:focus{
     outline: 0;
 }
 
