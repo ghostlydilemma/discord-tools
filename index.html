@@ -27,8 +27,8 @@
                         Discord Tools
                     </li>
                     <div class='middleBox'>
-                        <li onclick="moveHome();">Home</li>
-                        <li onclick="moveInfo();">Info</li>
+                        <li onclick="move();">Home</li>
+                        <li onclick="move();">Info</li>
                         <li id='themeSwitch' onclick="switchCSS();">Dark Mode</li>
                         <div class='flexGrow'></div>
                     </div>
@@ -61,8 +61,8 @@
                     <div class='toolContainerInner emojiText'>
                         <div class='converter'>
                             <p>Convert your Text into fancey 🇪 🇲 🇴 🇯 🇮 🇹 🇪 🇽 🇹</p>
-                            <textarea name="emojiText" id="emojiText" rows="1" class='input'></textarea>
-                            <textarea name="emojiTextRes" id="emojiTextRes" rows="12" class='output'></textarea>
+                            <textarea name="emojiText" id="emojiText" rows="1" class='input' placeholder="Input"></textarea>
+                            <textarea name="emojiTextRes" id="emojiTextRes" rows="12" class='output' placeholder="Output"></textarea>
                             <div class='button' data-clipboard-target="#emojiTextRes">Copy</div>
                             <p>Characters:
                                 <span class='characterCount'>0</span>
@@ -78,8 +78,8 @@
                     <div class='toolContainerInner clappify'>
                         <div class='converter'>
                             <p>Add 👏 some 👏 clap 👏 to 👏 your 👏 text 👏 !</p>
-                            <textarea name="clappify" id="clappify" rows="1" class='input'></textarea>
-                            <textarea name="clappifyRes" id="clappifyRes" rows="12" class='output'></textarea>
+                            <textarea name="clappify" id="clappify" rows="1" class='input' placeholder="Input"></textarea>
+                            <textarea name="clappifyRes" id="clappifyRes" rows="12" class='output' placeholder="Output"></textarea>
                             <div class='button' data-clipboard-target="#clappifyRes">Copy</div>
                             <p>Characters:
                                 <span class='characterCount'>0</span>
@@ -109,7 +109,6 @@
                     <br/> The GitHub Repo for the project:
                     <a href="https://github.com/GhostlyDilemma/Discord-Tools" class="external">Here</a>
                     <br/>
-                    <br/>//TODO: Make sublinks: #emojitext which opens box
                     <br/>//TODO: Theme generator
                     <br/>//TODO: Mobile
                 </p>
