@@ -1,9 +1,9 @@
-body.dark{
+body{
     background-color: #212121;
     color: white;
 }
 
-body.dark textarea, body.dark .toolContainer{
+body textarea, body .toolContainer{
     border-color: white;
     color: white;
 }
@@ -16,8 +16,8 @@ body.dark textarea, body.dark .toolContainer{
     background-color: rgba(255,255,255,0.2);
 }
 
-body.dark nav ul{
-    background-color: rgba(20,20,20,0.8);
+body nav ul{
+    background-color: #171717;
 }
 
 a, li:not(.logo), span{

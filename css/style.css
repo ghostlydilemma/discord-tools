@@ -83,8 +83,10 @@ nav ul{
     border-radius: 10px;
     width: 90%;
     top: 10px;
-    background-color: rgba(240, 240, 240, 0.93);
+    background-color: white;
+    opacity: 1;
     border-bottom: 2px solid grey;
+    z-index: 999;
 }
 
 ul.components{
@@ -161,11 +163,12 @@ a:focus{
     margin-top: 2%;
     padding: 1%;
     border-bottom: 5px solid black;
+    cursor: pointer;
 }
 
 .arrow{
     font-size: 30px;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: transform 200ms;
     transform: rotateX(0deg);
 }
