@@ -54,11 +54,19 @@ $(document).ready(function () {
         $('.clappify .characterCount').text(characterCount('#clappifyRes'));
     });
 
-    new ClipboardJS('.button');
+    $('#clappifyDeluxeText').on('keyup', function () {
+        $('#clappifyDeluxeRes').val(clappifyDeluxe($(this).val(), $('#clappifyDeluxeEmote').val()));
+        $('.clappifyDeluxe .characterCount').text(characterCount('#clappifyDeluxeRes'));
+    });
+    $('#clappifyDeluxeEmote').on('keyup', function () {
+        $('#clappifyDeluxeRes').val(clappifyDeluxe($('#clappifyDeluxeText').val(), $(this).val()));
+        $('.clappifyDeluxe .characterCount').text(characterCount('#clappifyDeluxeRes'));
+    });
+
+    var clipboard = new ClipboardJS('.button');
 
     $(window).on('resize', function () {
         $('.toolContainerInner').each(function () {
-            console.log(this);
             if ($(this).hasClass('open')) {
                 let toolContainerCorrectAnim = anime({
                     targets: this,
@@ -70,10 +78,35 @@ $(document).ready(function () {
         moveFix();
     });
 
+    $('#siteSwitch').on('click', function () {
+        if ($(this).text() == 'Home') {
+            this.switchText('Info');
+        } else {
+            this.switchText('Home');
+        }
+        move();
+    });
+
+    $('#themeSwitch').on('click', function () {
+        if ($(this).text().indexOf('Dark') !== -1) {
+            this.switchText('White Mode');
+        } else {
+            this.switchText('Dark Mode');
+        }
+        switchCSS();
+    });
+
     let url = window.location.href.split('?')[1]; // tab-1
     $(`.toolContainer.${url} .arrow`).click();
 });
 
+// Converters
+
+/**
+ * Converts input text to Emoji Text
+ * @param {String} input Input from a textfield which gets converted in this method
+ * @returns {String} Return field, which stores the converted text 
+ */
 function emojiText(input) {
     if (input != "") {
         let splitToConvert = input.split("");
@@ -130,7 +163,11 @@ function emojiText(input) {
         return readyResult;
     }
 }
-
+/**
+ * Adds ':clap:' to input text
+ * @param {String} input Input from a textfield which gets converted in this method
+ * @returns {String} Return field, which stores the converted text
+ */
 function clappify(input) {
     input = input.split(" ");
     let clappifiedInput = "";
@@ -142,11 +179,37 @@ function clappify(input) {
     }
     return clappifiedInput;
 }
-
+/**
+ * Adds a custom emote to the input text
+ * @param {String} input Input from a textfield which gets converted in this method
+ * @param {String} emote Input from a textfield which is being injected in above defined text
+ * @returns {String} Return field, which stores the converted text
+ */
+function clappifyDeluxe(input, emote) {
+    input = input.split(" ");
+    let clappifiedInput = "";
+    for (let i = 0; i < input.length; i++) {
+        clappifiedInput += input[i];
+        if (i < input.length - 1) {
+            clappifiedInput += ` ${emote} `;
+        }
+    }
+    return clappifiedInput;
+}
+/**
+ * Checks if a String is a number
+ * @param {String} n String to checkk whether it is numeric or not
+ * @returns {Boolean} returns if input is numeric
+ */
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
-
+/**
+ * Checks if a specific character is a letter according to ASCII or if it is an Umlaut (Ger), if that is the chase, it gets converted into characters -> ä = ae, ö = oe, ü = ue, ß = ss
+ * @param {Array} array Array of characters
+ * @param {int} i Position in above defined array 
+ * @returns {boolean} Returns whether the character meets the requirements stated above or not
+ */
 function isLetter(array, i) {
     let currentChar = array[i];
     if (((currentChar > '@') && (currentChar < '[')) || ((currentChar > '`') && (currentChar < '{'))) {
@@ -174,21 +237,34 @@ function isLetter(array, i) {
         }
     }
 }
-
-Array.prototype.insert = function (index, item) {
-    this.splice(index, 0, item);
-};
-
+/**
+ * Used to return how many characters are within a given element
+ * @param {String} el String of an element to be found with jquery within the function
+ * @returns {int} Number of letters/characters within the handed over element
+ */
 function characterCount(el) {
     return $(el).val().split('').length;
 }
 
-function toolContainerAnim(el, state) {
-    if (state == 'open') {
-        el.addClass('upsidedown');
-    } else {
-        el.removeClass('upsidedown');
-    }
+// Expanding Functions
+
+/**
+ * Function used to insert object in an array at a given place
+ * @param {int} index Index of Array that this function is expanding
+ * @param {Object} item Object which will be put into the defined place in the array
+ */
+Array.prototype.insert = function (index, item) {
+    this.splice(index, 0, item);
+};
+/**
+ * Function expanding HTMLElement to conveniently change the Text of a view buttons on the page
+ * @param {String} newText New Text the button should hold
+ */
+HTMLElement.prototype.switchText = function (newText) {
+    $(this).fadeToggle(200, function () {
+        $(this).text(newText);
+        $(this).fadeToggle(200);
+    });
 }
 
 function findInner(el) {
@@ -201,6 +277,16 @@ function findInner(el) {
         }
     }
     return selectorArray.join("");
+}
+
+// Animations
+
+function toolContainerAnim(el, state) {
+    if (state == 'open') {
+        el.addClass('upsidedown');
+    } else {
+        el.removeClass('upsidedown');
+    }
 }
 
 function move() {
@@ -241,13 +327,11 @@ function moveFix() {
     }
 }
 
-function switchCSS(mode) {
+function switchCSS() {
     if (document.styleSheets[2].disabled == true) {
         document.styleSheets[2].disabled = false;
-        $('#themeSwitch').text('White Mode');
     } else {
         document.styleSheets[2].disabled = true;
-        $('#themeSwitch').text('Dark Mode');
     }
 }
 
@@ -258,9 +342,7 @@ function changeClass(state) {
         $('body').css('overflow-y', 'hidden');
         $('html, body').stop().animate({
             scrollTop: 0
-        }, 1000, 'swing', function () {
-            console.log('test');
-        })
+        }, 1000, 'swing');
     } else {
         $('.home').addClass('active');
         $('.info').removeClass('active');
