@@ -5,7 +5,11 @@ h1, h2, li.logo, .arrow, textarea, .button{
     font-weight: 400;
 }
 
-*:not(.toolContainerInner):not(.mainWrap):not(main){
+*:not(.toolContainerInner):not(.mainWrap):not(main):not(li#siteSwitch){
+    transition: all 200ms;
+}
+
+body{
     transition: all 200ms;
 }
 
@@ -208,4 +212,14 @@ textarea.output{
     border: none;
     background-color: rgba(0,0,0,0.02);
     resize: vertical;
+}
+
+textarea:read-only::selection{
+    background-color: transparent;
+    color: #D81B60;
+}
+
+textarea:-moz-read-only::-moz-selection{
+    background-color: transparent;
+    color: #D81B60;
 }
