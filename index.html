@@ -10,13 +10,13 @@
         <meta name='description' content='Get your coolest Discord Tools today!'>
 
         <link href='https://fonts.googleapis.com/css?family=Lato|Montserrat' rel='stylesheet'>
-        <link rel='stylesheet' href='css/style.css' type="text/css">
-        <link rel="stylesheet" href="css/styledark.css" type="text/css" />
+        <link rel='stylesheet' href='css/style.css' type='text/css' />
+        <link rel='stylesheet' href='css/styledark.css' type='text/css' />
 
         <script src='node_modules/animejs/anime.js'></script>
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src='node_modules/jquery/dist/jquery.min.js'></script>
         <script src='js/converter.js'></script>
-        <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
+        <script src='node_modules/clipboard/dist/clipboard.min.js'></script>
     </head>
 
     <body>
@@ -27,9 +27,8 @@
                         Discord Tools
                     </li>
                     <div class='middleBox'>
-                        <li onclick="move();">Home</li>
-                        <li onclick="move();">Info</li>
-                        <li id='themeSwitch' onclick="switchCSS();">Dark Mode</li>
+                        <li id='siteSwitch'>Info</li>
+                        <li id='themeSwitch'>Dark Mode</li>
                         <div class='flexGrow'></div>
                     </div>
                     <div class='rightBox'>
@@ -47,7 +46,7 @@
                 </ul>
             </nav>
         </header>
-        <div class="mainWrap">
+        <div class='mainWrap'>
             <main class='home active'>
                 <p>This is just a little collection of
                     <a class='external' href='https://discordapp.com/'>Discord</a> Tools.
@@ -61,16 +60,16 @@
                     <div class='toolContainerInner emojiText'>
                         <div class='converter'>
                             <p>Convert your Text into fancey 🇪 🇲 🇴 🇯 🇮 🇹 🇪 🇽 🇹</p>
-                            <textarea name="emojiText" id="emojiText" rows="1" class='input' placeholder="Input"></textarea>
-                            <textarea name="emojiTextRes" id="emojiTextRes" rows="12" class='output' placeholder="Output"></textarea>
-                            <div class='button' data-clipboard-target="#emojiTextRes">Copy</div>
+                            <textarea name='emojiText' id='emojiText' rows='1' class='input' placeholder='Input'></textarea>
+                            <textarea name='emojiTextRes' id='emojiTextRes' rows='12' class='output' placeholder='Output' readonly></textarea>
+                            <div class='button' data-clipboard-target='#emojiTextRes'>Copy</div>
                             <p>Characters:
                                 <span class='characterCount'>0</span>
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="tool">
+                <div class='tool'>
                     <div class='toolContainer clappify'>
                         <h1>Can 👏 you 👏 clap 👏 it 👏 ?</h1>
                         <span class='arrow'>⇓</span>
@@ -78,9 +77,27 @@
                     <div class='toolContainerInner clappify'>
                         <div class='converter'>
                             <p>Add 👏 some 👏 clap 👏 to 👏 your 👏 text 👏 !</p>
-                            <textarea name="clappify" id="clappify" rows="1" class='input' placeholder="Input"></textarea>
-                            <textarea name="clappifyRes" id="clappifyRes" rows="12" class='output' placeholder="Output"></textarea>
-                            <div class='button' data-clipboard-target="#clappifyRes">Copy</div>
+                            <textarea name='clappify' id='clappify' rows='1' class='input' placeholder='Input'></textarea>
+                            <textarea name='clappifyRes' id='clappifyRes' rows='12' class='output' placeholder='Output' readonly></textarea>
+                            <div class='button' data-clipboard-target='#clappifyRes'>Copy</div>
+                            <p>Characters:
+                                <span class='characterCount'>0</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class='tool'>
+                    <div class='toolContainer clappifyDeluxe'>
+                        <h1>Clappify 💚 Deluxe</h1>
+                        <span class='arrow'>⇓</span>
+                    </div>
+                    <div class='toolContainerInner clappifyDeluxe'>
+                        <div class='converter'>
+                            <p>Add 💙 some 💚 emotes ❤ to 🖤 your 💜 text 💛 !</p>
+                            <textarea name='clappifyDeluxeText' id='clappifyDeluxeText' rows='1' class='input' placeholder='Text'></textarea>
+                            <textarea name='clappifyDeluxeEmote' id='clappifyDeluxeEmote' rows='1' class='input' placeholder='Emote'></textarea>
+                            <textarea name='clappifyDeluxeRes' id='clappifyDeluxeRes' rows='11' class='output' placeholder='Output' readonly></textarea>
+                            <div class='button' data-clipboard-target='#clappifyDeluxeRes'>Copy</div>
                             <p>Characters:
                                 <span class='characterCount'>0</span>
                             </p>
@@ -89,25 +106,25 @@
                 </div>
                 <br>
             </main>
-            <main class="info">
+            <main class='info'>
                 <p>Discord Tools, a project by
                     <a href='https://github.com/GhostlyDilemma' class='external'>Ghostly Dilemma</a>
                     <br/>
                     <br/>External Libraries used:</p>
-                <ul class="components">
+                <ul class='components'>
                     <li>
-                        <a href="https://github.com/juliangarnier/anime" class="external">Anime JS</a>
+                        <a href='https://github.com/juliangarnier/anime' class='external'>Anime JS</a>
                     </li>
                     <li>
-                        <a href="https://github.com/jquery/jquery" class="external">jQuery</a>
+                        <a href='https://github.com/jquery/jquery' class='external'>jQuery</a>
                     </li>
                     <li>
-                        <a href="https://github.com/zenorocha/clipboard.js/" class="external">Clipboard JS</a>
+                        <a href='https://github.com/zenorocha/clipboard.js/' class='external'>Clipboard JS</a>
                     </li>
                 </ul>
                 <p>
                     <br/> The GitHub Repo for the project:
-                    <a href="https://github.com/GhostlyDilemma/Discord-Tools" class="external">Here</a>
+                    <a href='https://github.com/GhostlyDilemma/Discord-Tools' class='external'>Here</a>
                     <br/>
                     <br/>//TODO: Theme generator
                     <br/>//TODO: Mobile
