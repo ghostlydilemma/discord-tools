@@ -80,24 +80,18 @@ $(document).ready(function () {
 
     $('#siteSwitch').on('click', function () {
         if ($(this).text() == 'Home') {
-            this.switchText('Info');
+            switchText(this, 'Info');
         } else {
-            this.switchText('Home');
+            switchText(this, 'Home');
         }
         move();
     });
 
     $('#themeSwitch').on('click', function () {
-        if ($(this).text().indexOf('Dark') !== -1) {
-            this.switchText('White Mode');
-        } else {
-            this.switchText('Dark Mode');
-        }
-        switchCSS();
+        switchCSS({ "object": this });
     });
 
-    let url = window.location.href.split('?')[1]; // tab-1
-    $(`.toolContainer.${url} .arrow`).click();
+    readLink();
 });
 
 // Converters
@@ -260,10 +254,10 @@ Array.prototype.insert = function (index, item) {
  * Function expanding HTMLElement to conveniently change the Text of a view buttons on the page
  * @param {String} newText New Text the button should hold
  */
-HTMLElement.prototype.switchText = function (newText) {
-    $(this).fadeToggle(200, function () {
-        $(this).text(newText);
-        $(this).fadeToggle(200);
+function switchText(object, newText) {
+    $(object).fadeToggle(200, function () {
+        $(object).text(newText);
+        $(object).fadeToggle(200);
     });
 }
 
@@ -327,10 +321,21 @@ function moveFix() {
     }
 }
 
-function switchCSS() {
-    if (document.styleSheets[2].disabled == true) {
+function switchCSS(option) {
+    let state = '';
+    let object = '';
+    if (option['state'] == undefined) {
+        state = $(option['object']).text().toLowerCase();
+        option = option['object'];
+    } else {
+        state = option['state'];
+        option = '#themeSwitch';
+    }
+    if (state.indexOf('dark') != -1) {
+        switchText(option, 'White Mode');
         document.styleSheets[2].disabled = false;
     } else {
+        switchText(option, 'Dark Mode');
         document.styleSheets[2].disabled = true;
     }
 }
@@ -348,4 +353,39 @@ function changeClass(state) {
         $('.info').removeClass('active');
         $('body').css('overflow-y', 'auto');
     }
+}
+
+function readLink() {
+    // URL Syntax = .../?gen=[genID1]&[genID2]&...?theme=dark
+    let url = window.location.href.split('?');
+    let type = '';
+    let option = '';
+    let part = '';
+    for (let i = 0; i < url.length; i++) {
+        if (i != 0) {
+            part = url[i].split('=');
+            type = part[0];
+            option = part[1];
+            console.log('type: ' + type + ', option: ' + option);
+            switch (type) {
+                case 'gen':
+                    let generators = option.split('&');
+                    for (let j = 0; j < generators.length; j++) {
+                        $(`.toolContainer.${generators[j]}`).click();
+                    }
+                    break;
+                case 'theme':
+                    switchCSS({ "state": option });
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    //$(`.toolContainer.${ url }.arrow`).click();
+}
+
+function writeLink(type, option, operation) {
+    let url = window.location.href.split('?');
+
 }
