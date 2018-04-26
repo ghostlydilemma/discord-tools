@@ -30,20 +30,6 @@ $(document).ready(function () {
         this.style.height = (this.scrollHeight) + 'px';
     });
 
-    $('textarea.input').on('keyup', function () {
-        let $count = $(this).parent().find('span');
-        if ($count.text() > 2000) {
-            $count.css('color', '#F44336');
-        } else {
-            if ($('body').hasClass('dark')) {
-                $count.css('color', 'white');
-            } else {
-                $count.css('color', 'black');
-            }
-
-        }
-    });
-
     $('#emojiText').on('keyup', function () {
         $('#emojiTextRes').val(emojiText($(this).val()));
         $('.emojiText .characterCount').text(characterCount('#emojiTextRes'));
@@ -61,6 +47,20 @@ $(document).ready(function () {
     $('#clappifyDeluxeEmote').on('keyup', function () {
         $('#clappifyDeluxeRes').val(clappifyDeluxe($('#clappifyDeluxeText').val(), $(this).val()));
         $('.clappifyDeluxe .characterCount').text(characterCount('#clappifyDeluxeRes'));
+    });
+
+    $('textarea.input').on('keyup', function () {
+        let $count = $(this).parent().find('span');
+        if ($count.text() > 2000) {
+            $count.css('color', '#F44336');
+        } else {
+            if (!document.styleSheets[2].disabled) {
+                $count.css('color', 'white');
+            } else {
+                $count.css('color', 'black');
+            }
+
+        }
     });
 
     var clipboard = new ClipboardJS('.button');
@@ -89,6 +89,7 @@ $(document).ready(function () {
 
     $('#themeSwitch').on('click', function () {
         switchCSS({ "object": this });
+        // writeLink('theme', $(this).text());
     });
 
     readLink();
@@ -250,17 +251,6 @@ function characterCount(el) {
 Array.prototype.insert = function (index, item) {
     this.splice(index, 0, item);
 };
-/**
- * Function expanding HTMLElement to conveniently change the Text of a view buttons on the page
- * @param {String} newText New Text the button should hold
- */
-function switchText(object, newText) {
-    $(object).fadeToggle(200, function () {
-        $(object).text(newText);
-        $(object).fadeToggle(200);
-    });
-}
-
 function findInner(el) {
     let selectorArray = el.attr('class').split(" ");
     for (let i = 0; i < selectorArray.length; i++) {
@@ -272,7 +262,6 @@ function findInner(el) {
     }
     return selectorArray.join("");
 }
-
 // Animations
 
 function toolContainerAnim(el, state) {
@@ -282,7 +271,16 @@ function toolContainerAnim(el, state) {
         el.removeClass('upsidedown');
     }
 }
-
+/**
+ * Function expanding HTMLElement to conveniently change the Text of a view buttons on the page
+ * @param {String} newText New Text the button should hold
+ */
+function switchText(object, newText) {
+    $(object).fadeToggle(200, function () {
+        $(object).text(newText);
+        $(object).fadeToggle(200);
+    });
+}
 function move() {
     if (!$('.info').hasClass('active')) {
         let moveInfo = anime({
@@ -302,7 +300,6 @@ function move() {
         });
     }
 }
-
 function moveFix() {
     if ($('.info').hasClass('active')) {
         let moveInfo = anime({
@@ -320,7 +317,6 @@ function moveFix() {
         });
     }
 }
-
 function switchCSS(option) {
     let state = '';
     let object = '';
@@ -339,7 +335,6 @@ function switchCSS(option) {
         document.styleSheets[2].disabled = true;
     }
 }
-
 function changeClass(state) {
     if (state == 'info') {
         $('.info').addClass('active');
@@ -354,7 +349,6 @@ function changeClass(state) {
         $('body').css('overflow-y', 'auto');
     }
 }
-
 function readLink() {
     // URL Syntax = .../?gen=[genID1]&[genID2]&...?theme=dark
     let url = window.location.href.split('?');
@@ -366,7 +360,6 @@ function readLink() {
             part = url[i].split('=');
             type = part[0];
             option = part[1];
-            console.log('type: ' + type + ', option: ' + option);
             switch (type) {
                 case 'gen':
                     let generators = option.split('&');
@@ -382,10 +375,49 @@ function readLink() {
             }
         }
     }
-    //$(`.toolContainer.${ url }.arrow`).click();
 }
 
-function writeLink(type, option, operation) {
-    let url = window.location.href.split('?');
+// function writeLink(typeNew, optionNew) {
+//     console.log(typeNew);
+//     console.log(optionNew);
+//     let url = window.location.href.split('?');
+//     let urlNew = url[0];
+//     let type = '';
+//     let option = '';
+//     let part = '';
+//     console.log(url);
+//     for (let i = 0; i < url.length; i++) {
+//         part = url[i].split('=');
+//         type = part[0];
+//         option = part[1];
+//         console.log(typeNew);
+//         switch (typeNew) {
+//             case 'gen':
+//             // let generators = option.split('&');
+//             // for (let j = 0; j < generators.length; j++) {
+//             //     if (generators[i] == optionNew) {
+//             //         let index = generators.indexOf(i);
+//             //         if (index > -1) {
+//             //             array.splice(index, 1);
+//             //         }
+//             //     }
+//             // }
+//             // option += `&${optionNew}`;
+//             // break;
+//             case 'theme':
+//                 console.log("henlo");
+//                 option: optionNew.split(' ')[0].toLowerCase();
+//                 break;
 
-}
+//             default:
+//                 break;
+//         }
+//         console.log(type);
+//         console.log(option);
+//         part = `${type}=${option}`;
+//         urlNew += `?${part}`;
+
+//     }
+//     console.log(urlNew);
+//     window.history.pushState(null, null, urlNew);
+// }
