@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    document.styleSheets[2].disabled = true;
 
     $('.toolContainer').on('click', function () {
         let open;
@@ -21,7 +20,10 @@ $(document).ready(function () {
             });
             $(selector).addClass('open');
         }
+        writeLink();
     });
+
+    readLink();
 
     $('textarea').each(function () {
         this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
@@ -89,10 +91,12 @@ $(document).ready(function () {
 
     $('#themeSwitch').on('click', function () {
         switchCSS({ "object": this });
-        // writeLink('theme', $(this).text());
+        writeLink();
     });
 
-    readLink();
+    $('.gridBoxGenerator .button:not(.disabled)').on('click', function () {
+        $(this).toggleClass('selected');
+    });
 });
 
 // Converters
@@ -355,6 +359,7 @@ function readLink() {
     let type = '';
     let option = '';
     let part = '';
+    let setCSS = false;
     for (let i = 0; i < url.length; i++) {
         if (i != 0) {
             part = url[i].split('=');
@@ -369,55 +374,59 @@ function readLink() {
                     break;
                 case 'theme':
                     switchCSS({ "state": option });
+                    setCSS = true;
                     break;
                 default:
                     break;
             }
         }
     }
+    if (!setCSS) {
+        switchCSS({ "state": 'white' });
+    }
 }
 
-// function writeLink(typeNew, optionNew) {
-//     console.log(typeNew);
-//     console.log(optionNew);
-//     let url = window.location.href.split('?');
-//     let urlNew = url[0];
-//     let type = '';
-//     let option = '';
-//     let part = '';
-//     console.log(url);
-//     for (let i = 0; i < url.length; i++) {
-//         part = url[i].split('=');
-//         type = part[0];
-//         option = part[1];
-//         console.log(typeNew);
-//         switch (typeNew) {
-//             case 'gen':
-//             // let generators = option.split('&');
-//             // for (let j = 0; j < generators.length; j++) {
-//             //     if (generators[i] == optionNew) {
-//             //         let index = generators.indexOf(i);
-//             //         if (index > -1) {
-//             //             array.splice(index, 1);
-//             //         }
-//             //     }
-//             // }
-//             // option += `&${optionNew}`;
-//             // break;
-//             case 'theme':
-//                 console.log("henlo");
-//                 option: optionNew.split(' ')[0].toLowerCase();
-//                 break;
+function writeLink() {
+    let link = window.location.href.split('?')[0];
+    let generators = fetchGenerators();
+    let genLink = `?gen=`;
+    for (let i = 0; i < generators.length; i++) {
+        genLink += generators[i];
+        console.log(generators[i]);
+        if (generators.length != 1 && i != generators.length - 1) {
+            genLink += '&';
+        }
+    }
+    if (genLink == '?gen=') {
+        genLink = '';
+    }
+    link += genLink;
+    if (fetchTheme() == 'dark') {
+        link += `?theme=${fetchTheme()}`;
+    }
+    window.history.pushState(null, null, link);
+}
 
-//             default:
-//                 break;
-//         }
-//         console.log(type);
-//         console.log(option);
-//         part = `${type}=${option}`;
-//         urlNew += `?${part}`;
+function fetchGenerators() {
+    let openContainers = $('.toolContainerInner.open');
+    let openClasses = '';
+    let className = '';
+    for (let i = 0; i < openContainers.length; i++) {
+        let className = openContainers[i].className.split(" ");
+        for (let j = 0; j < className.length; j++) {
+            if (className[j] != 'toolContainerInner' && className[j] != 'open') {
+                openClasses += `${className[j]} `;
+            }
+        }
+    }
+    openClasses = openClasses.split(" ").slice(0, this.length - 1);
+    return openClasses;
+}
 
-//     }
-//     console.log(urlNew);
-//     window.history.pushState(null, null, urlNew);
-// }
+function fetchTheme() {
+    if (!document.styleSheets[2].disabled) {
+        return 'dark';
+    } else {
+        return '';
+    }
+}
