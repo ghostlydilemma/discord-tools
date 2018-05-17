@@ -1,37 +1,6 @@
-body{
-    background-color: #212121;
-    color: white;
-}
-
-body textarea, body .toolContainer{
-    border-color: white;
-    color: white;
-}
-
-::selection{
-    background-color: rgba(255,255,255,0.2);
-}
-
-::-moz-selection{
-    background-color: rgba(255,255,255,0.2);
-}
-
-body nav ul{
-    background-color: #171717;
-}
-
-a, li:not(.logo), span{
-    color: white;
-}
-
-a.internal{
-    color: #ff3333;
-}
-
-a.external{
-    color: #80b3ff;
-}
-
-a:hover, li:not(.logo):hover, nav span:hover{
-    color: #D81B60;
+:root{
+    --selectionColor: rgba(255,255,255,0.2);
+    --textFontColor: #ffffff;
+    --backgroundColor: #212121;
+    --navColor: #171717;
 }

@@ -1,29 +1,62 @@
-/* Fonts */
+:root{
+    --headerFontFamily: 'Montserrat', sans-serif; 
+    --headerFontWeight: 400;
+    --textFontFamily: 'Raleway', sans-serif;
+    --textFontSize: 20px;
+    --selectionColor: rgba(0,0,0,0.2);
+    --backgroundColor: #ffffff;
+    --navColor: #ffffff;
+    --textFontColor: #000000;
+    --textHoverFontColor: #ffffff;
+    --textInteralColor: #ff3333;
+    --textExternalColor: #80b3ff;
+    --accentColor: #D81B60;
+    --accentColorBright: rgba(216, 27, 96, 0.6);
+}
+
+
+/* Fonts and Text Selection */
 
 h1, h2, li.logo, .arrow, textarea, .button{
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-family: var(--headerFontFamily);
+    font-weight: var(--headerFontWeight);
 }
+
+pre code {
+    font-family: 'Fira Mono';
+}
+
+p, li:not(.logo){
+    font-family: var(--textFontFamily);
+    font-size: var(--textFontSize);
+}
+
+::selection{
+    background-color: var(--selectionColor);
+}
+
+::-moz-selection{
+    background-color: var(--selectionColor);
+}
+
+textarea:read-only::selection{
+    background-color: transparent;
+    color: var(--accentColor);
+}
+
+textarea:-moz-read-only::-moz-selection{
+    background-color: transparent;
+    color: var(--accentColor);
+}
+
+/* Transitions */
 
 *:not(.toolContainerInner):not(.mainWrap):not(main):not(li#siteSwitch){
     transition: all 200ms;
 }
 
-body{
+body, .toolContainer h1, .toolContainer .arrow, .toolContainer{
     transition: all 200ms;
-}
-
-p, li:not(.logo){
-    font-family: 'Raleway', sans-serif;
-    font-size: 20px;
-}
-
-::selection{
-    background-color: rgba(0,0,0,0.2);
-}
-
-::-moz-selection{
-    background-color: rgba(0,0,0,0.2);
 }
 
 /* Margins */
@@ -36,6 +69,45 @@ main{
     margin: 120px 5% 0 5%;
 }
 
+/* Color */
+
+a.internal{
+    color: var(--textInteralColor);
+}
+
+a.external{
+    color: var(--textExternalColor);
+}
+
+a:hover, li:not(.logo):hover{
+    color: var(--accentColor);
+}
+
+a, li:not(.logo){
+    text-decoration: none;
+    color: var(--textFontColor);
+    transition: 200ms color;
+    cursor: pointer;
+}
+
+.button{
+    border: 3px solid var(--accentColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    width: 100px;
+    margin: 1% 0;
+    color: var(--accentColor);
+    transition: 200ms background-color, 200ms color;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: var(--accentColor);
+    color: var(--textHoverFontColor);
+}
+
 .mainWrap{
     display: flex;
     flex-direction: row;
@@ -44,29 +116,12 @@ main{
 
 body{
     overflow-x: hidden;
+    background-color: var(--backgroundColor);
+    color: var(--textFontColor);
 }
 
 .home, .info{
     width: 100vw;
-}
-
-a, li:not(.logo){
-    text-decoration: none;
-    color: black;
-    transition: 200ms color;
-    cursor: pointer;
-}
-
-a.internal{
-    color: #ff3333;
-}
-
-a.external{
-    color: #80b3ff;
-}
-
-a:hover, li:not(.logo):hover{
-    color: #D81B60;
 }
 
 textarea:focus, input:focus{
@@ -87,10 +142,15 @@ nav ul{
     border-radius: 10px;
     width: 90%;
     top: 10px;
-    background-color: white;
+    background-color: var(--navColor);
     opacity: 1;
     border-bottom: 2px solid grey;
     z-index: 999;
+}
+
+footer nav ul{
+    top: auto;
+    bottom: 10px;
 }
 
 ul.components{
@@ -110,24 +170,6 @@ nav li:not(.logo){
 
 .logo{
     font-size: 30px;
-}
-
-.button{
-    border: 3px solid #D81B60;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 46px;
-    width: 100px;
-    margin: 1% 0;
-    color: #D81B60;
-    transition: 200ms background-color, 200ms color;
-    cursor: pointer;
-}
-
-.button:hover{
-    background-color: #D81B60;
-    color: white;
 }
 
 .middleBox, .rightBox{
@@ -166,13 +208,12 @@ a:focus{
     align-items: center;
     margin-top: 2%;
     padding: 1%;
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid var(--textFontColor);
     cursor: pointer;
 }
 
 .arrow{
     font-size: 30px;
-    /* cursor: pointer; */
     transition: transform 200ms;
     transform: rotateX(0deg);
 }
@@ -192,34 +233,74 @@ a:focus{
 }
 
 textarea{
-    color: black;
+    color: var(--textFontColor);
     margin-top: 1%;
     width: 100%;
     line-height: 20px;
     font-size: 20px;
     border: none;
     background-color: transparent;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid var(--textFontColor);
     resize: none;
     transition: 200ms border-color;
 }
 
 textarea:focus, textarea:hover{
-    border-color:#D81B60;
+    border-color: var(--accentColor);
 }
 
-textarea.output{
+.output{
     border: none;
     background-color: rgba(0,0,0,0.02);
     resize: vertical;
 }
 
-textarea:read-only::selection{
-    background-color: transparent;
-    color: #D81B60;
+.toolContainer:hover h1, .toolContainer:hover .arrow, .toolContainer:hover{
+    color: var(--accentColor);
+    border-color: var(--accentColor);
 }
 
-textarea:-moz-read-only::-moz-selection{
-    background-color: transparent;
-    color: #D81B60;
+.gridBoxGenerator{
+    margin: 1% 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+
+}
+
+.customaGenerator p{
+    margin-left: 12px;
+}
+
+.gridBoxGenerator .button{
+    width: 90%;
+    margin: 1% auto;
+    text-align: center;
+}
+
+.gridBoxGenerator .button:hover{
+    background-color: var(--accentColorBright);
+}
+
+
+.gridBoxGenerator .button.selected{
+    background-color: var(--accentColor);
+    border-color: var(--accentColor);
+    color: var(--textHoverFontColor);
+}
+
+.gridBoxGenerator .button.disabled{
+    cursor: not-allowed;
+    background-color: #E0E0E0;
+    border-color: #E0E0E0;
+    color: #212121;
+}
+
+.gridBoxGenerator .button.preview{
+    border-color: #9E9E9E;
+    background-color: #9E9E9E;
+}
+
+.gridBoxGenerator .button.empty{
+    cursor: default;
+    border-color: transparent;
 }
