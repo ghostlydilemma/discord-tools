@@ -12,11 +12,16 @@
         <link href='https://fonts.googleapis.com/css?family=Lato|Montserrat' rel='stylesheet'>
         <link rel='stylesheet' href='css/style.css' type='text/css' />
         <link rel='stylesheet' href='css/styledark.css' type='text/css' />
+        <link rel='stylesheet' href='css/vs2015.css' rel='stylesheet'>
 
         <script src='node_modules/animejs/anime.js'></script>
         <script src='node_modules/jquery/dist/jquery.min.js'></script>
         <script src='js/converter.js'></script>
         <script src='node_modules/clipboard/dist/clipboard.min.js'></script>
+        <script src='js/highlight.pack.js'></script>
+
+        <script>hljs.initHighlightingOnLoad();</script>
+
     </head>
 
     <body>
@@ -104,6 +109,84 @@
                         </div>
                     </div>
                 </div>
+                <div class='tool'>
+                    <div class='toolContainer customaGenerator'>
+                        <h1>
+                            <a href='https://github.com/GhostlyDilemma/Customa' class='external'>Customa</a> Theme Generator</h1>
+                        <span class='arrow'>⇓</span>
+                    </div>
+                    <div class='toolContainerInner customaGenerator'>
+                        <div class='converter'>
+                            <p>This is a generator for the Customa Theme made by Ghostly Dilemma</p>
+                            <br/>
+                            <p>Base Themes</p>
+                            <hr>
+                            <div class='gridBoxGenerator base'>
+                                <div class="button disabled selected">Base Module</div>
+                                <div class="button disabled selected">Root Module</div>
+                                <div class="button">Settings Module</div>
+                                <div class="button">Updates Module</div>
+                                <div class="button">Variables Module</div>
+                                <div class="button">Font Module</div>
+                            </div>
+                            <br/>
+                            <p>Canary Themes</p>
+                            <hr>
+                            <div class='gridBoxGenerator'>
+                                <div class="button">Canary Module</div>
+                            </div>
+                            <br/>
+                            <p>Chat Themes</p>
+                            <hr>
+                            <div class='gridBoxGenerator canary'>
+                                <div class="button disabled preview">New Edit Icon Module (Soon!)</div>
+                                <div class="button disabled preview">White Theme Support Module (Soon!)</div>
+                                <div class="button disabled preview">Title Wrapper Module (Soon!)</div>
+                                <div class="button">Better File Type Module</div>
+                                <div class="button">Channel Divider Module</div>
+                                <div class="button">Channels Wrapper Module</div>
+                                <div class="button">Code Blocks Languages Module</div>
+                                <div class="button">Display Channel Icon Module</div>
+                                <div class="button">Guilds Wrapper Module</div>
+                                <div class="button">New Divider Red Module</div>
+                                <div class="button">New Edit Text Module</div>
+                            </div>
+                            <br/>
+                            <p>Emoji Themes</p>
+                            <hr>
+                            <div class='gridBoxGenerator emoji'>
+                                <div class="button disabled preview">Blobs Emoji Module (Soon!)</div>
+                                <div class="button">Jumbo Moji Module</div>
+                            </div>
+                            <br/>
+                            <p>Misc Themes</p>
+                            <hr>
+                            <div class='gridBoxGenerator'>
+                                <div class="button">Login Background Changer Module</div>
+                                <div class="button">Alternative Font Module
+                                    <br/>(Mac OS X/Linux only)</div>
+                            </div>
+                            <br/>
+                            <p>Sidebar Themes</p>
+                            <hr>
+                            <div class='gridBoxGenerator'>
+                                <div class="button">New Playing Module</div>
+                                <div class="button">New User Modal Module</div>
+                                <div class="button">New User Popout Module</div>
+                                <div class="button">Sidebar Modifier Module</div>
+                                <div class="button">Status Circles Module</div>
+                            </div>
+                            <br/>
+                            <p>Generated Theme</p>
+                            <hr>
+                            <div class="output" name='customaRes' id='customaRes' style="height: 0; overflow: hidden;">
+                                <pre>
+                                    <code class="css"></code>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <br>
             </main>
             <main class='info'>
@@ -125,6 +208,12 @@
                 <p>
                     <br/> The GitHub Repo for the project:
                     <a href='https://github.com/GhostlyDilemma/Discord-Tools' class='external'>Here</a>
+                    <br/> The original project is based on
+                    <a href='https://github.com/Ltotheuhas/Discord-text-to-emote-converter' class='external'>Discord-text-to-emote-converter</a> by
+                    <a href='https://github.com/Ltotheuhas' class='external'>Ltotheuhas</a>
+                    <br/> and the now deleted project DiscordToolsv2 by
+                    <a href='https://github.com/Deutner' class='external'>Deutner</a>
+                    <br/>
                     <br/>
                     <br/>//TODO: Theme generator
                     <br/>//TODO: Mobile
