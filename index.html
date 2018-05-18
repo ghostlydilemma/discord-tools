@@ -122,74 +122,82 @@
                             <p>Base Themes</p>
                             <hr>
                             <div class='gridBoxGenerator base'>
-                                <div class="button disabled selected">Base Module</div>
-                                <div class="button disabled selected">Root Module</div>
-                                <div class="button">Settings Module</div>
-                                <div class="button">Updates Module</div>
-                                <div class="button">Variables Module</div>
-                                <div class="button">Font Module</div>
+                                <div class="button disabled selected" value='Base/base'>Base Module</div>
+                                <div class="button disabled selected" value='Base/root'>Root Module</div>
+                                <div class="button disabled preview" value='Base/updates'>Updates Module
+                                    <br/>(Paused!)</div>
+                                <div class="button" value='Base/settings'>Settings Module</div>
+                                <div class="button" value='Base/variables'>Variables Module</div>
+                                <div class="button" value='Base/font'>Font Module</div>
                             </div>
                             <br/>
                             <p>Canary Themes</p>
                             <hr>
-                            <div class='gridBoxGenerator'>
-                                <div class="button">Canary Module</div>
+                            <div class='gridBoxGenerator canary'>
+                                <div class="button" value='Canary/canary'>Canary Module</div>
                             </div>
                             <br/>
                             <p>Chat Themes</p>
                             <hr>
-                            <div class='gridBoxGenerator canary'>
-                                <div class="button disabled preview">New Edit Icon Module (Soon!)</div>
-                                <div class="button disabled preview">White Theme Support Module (Soon!)</div>
-                                <div class="button disabled preview">Title Wrapper Module (Soon!)</div>
-                                <div class="button">Better File Type Module</div>
-                                <div class="button">Channel Divider Module</div>
-                                <div class="button">Channels Wrapper Module</div>
-                                <div class="button">Code Blocks Languages Module</div>
-                                <div class="button">Display Channel Icon Module</div>
-                                <div class="button">Guilds Wrapper Module</div>
-                                <div class="button">New Divider Red Module</div>
-                                <div class="button">New Edit Text Module</div>
+                            <div class='gridBoxGenerator chat'>
+                                <div class="button disabled preview" value=''>New Edit Icon Module (Soon!)</div>
+                                <div class="button disabled preview" value=''>White Theme Support Module (Soon!)</div>
+                                <div class="button disabled preview" value=''>Title Wrapper Module (Soon!)</div>
+                                <div class="button" value='Chat/betterFileTypes'>Better File Type Module</div>
+                                <div class="button" value='Chat/channelDivider'>Channel Divider Module</div>
+                                <div class="button" value='Chat/channelsWrapper'>Channels Wrapper Module</div>
+                                <div class="button" value='Chat/codeBlockLanguages'>Code Blocks Languages Module</div>
+                                <div class="button" value='Chat/displayChannelIcon'>Display Channel Icon Module</div>
+                                <div class="button" value='Chat/guildsWrapper'>Guilds Wrapper Module</div>
+                                <div class="button" value='Chat/newDividerRed'>New Divider Red Module</div>
+                                <div class="button" value='Chat/newEditText'>New Edit Text Module</div>
                             </div>
                             <br/>
                             <p>Emoji Themes</p>
                             <hr>
-                            <div class='gridBoxGenerator emoji'>
-                                <div class="button disabled preview">Blobs Emoji Module (Soon!)</div>
-                                <div class="button">Jumbo Moji Module</div>
+                            <div class=' gridBoxGenerator emoji'>
+                                <div class="button disabled preview" value=''>Blobs Emoji Module (Soon!)</div>
+                                <div class="button" value='Emoji/jumboMoji'>Jumbo Moji Module</div>
                             </div>
                             <br/>
                             <p>Misc Themes</p>
                             <hr>
-                            <div class='gridBoxGenerator'>
-                                <div class="button">Login Background Changer Module</div>
-                                <div class="button">Alternative Font Module
+                            <div class='gridBoxGenerator misc'>
+                                <div class="button" value='Misc/loginBGChanger'>Login Background Changer Module</div>
+                                <div class="button" value='Misc/unfinished_modules'>Alternative Font Module
                                     <br/>(Mac OS X/Linux only)</div>
                             </div>
                             <br/>
                             <p>Sidebar Themes</p>
                             <hr>
-                            <div class='gridBoxGenerator'>
-                                <div class="button">New Playing Module</div>
-                                <div class="button">New User Modal Module</div>
-                                <div class="button">New User Popout Module</div>
-                                <div class="button">Sidebar Modifier Module</div>
-                                <div class="button">Status Circles Module</div>
+                            <div class='gridBoxGenerator sidebar'>
+                                <div class="button" value='Sidebar/newPlaying'>New Playing Module</div>
+                                <div class="button" value='Sidebar/newUserModal'>New User Modal Module</div>
+                                <div class="button" value='Sidebar/newUserPopout'>New User Popout Module</div>
+                                <div class="button" value='Sidebar/sidebarModifier'>Sidebar Modifier Module</div>
+                                <div class="button" value='Sidebar/statusCircles'>Status Circles Module</div>
+                            </div>
+                            <br/>
+                            <p>Sidebar Themes</p>
+                            <hr>
+                            <div class='gridBoxGenerator webkit'>
+                                <div class="button" value='Webkit/advancedScrollbar'>Advanced Scrollbar Module</div>
+                                <div class="button" value='Webkit/placeholderRemove'>Placeholder Remover Module</div>
                             </div>
                             <br/>
                             <p>Generated Theme</p>
                             <hr>
-                            <div class="output" name='customaRes' id='customaRes' style="height: 0; overflow: hidden;">
-                                <pre>
-                                    <code class="css"></code>
-                                </pre>
+                            <div class="output" name=' customaRes' id='customaRes'>
+                                <pre><code class="css">@import url('https://raw.githack.com/GhostlyDilemma/Customa/master/Base/base.m.css');
+@import url('https://raw.githack.com/GhostlyDilemma/Customa/master/Base/root.m.css');</code></pre>
                             </div>
+                            <div class='button' data-clipboard-target='#customaRes pre'>Copy</div>
                         </div>
                     </div>
                 </div>
                 <br>
             </main>
-            <main class='info'>
+            <main class='info '>
                 <p>Discord Tools, a project by
                     <a href='https://github.com/GhostlyDilemma' class='external'>Ghostly Dilemma</a>
                     <br/>
