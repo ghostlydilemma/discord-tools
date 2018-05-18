@@ -96,6 +96,10 @@ $(document).ready(function () {
 
     $('.gridBoxGenerator .button:not(.disabled)').on('click', function () {
         $(this).toggleClass('selected');
+        $('#customaRes code').text(getSelectedModules());
+        $('code.hljs').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
     });
 });
 
@@ -353,6 +357,16 @@ function changeClass(state) {
         $('body').css('overflow-y', 'auto');
     }
 }
+function getSelectedModules() {
+    let selectedButtons = $('.gridBoxGenerator .button.selected');
+    let returnString = '';
+    for (let i = 0; i < selectedButtons.length; i++) {
+        returnString += `@import url('https://raw.githack.com/GhostlyDilemma/Customa/master/${$(selectedButtons[i]).attr('value')}.m.css');\n`;
+    }
+
+    return returnString;
+}
+
 function readLink() {
     // URL Syntax = .../?gen=[genID1]&[genID2]&...?theme=dark
     let url = window.location.href.split('?');
