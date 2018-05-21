@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('.toolContainer').on('click', function () {
+    $('.toolContainer, .toolContainerSmall').on('click', function () {
         let open;
         let selector = findInner($(this));
         if ($(selector).attr('class').indexOf('open') != -1) {
@@ -20,6 +20,9 @@ $(document).ready(function () {
             });
             $(selector).addClass('open');
         }
+    });
+
+    $('.toolContainer').on('click', function () {
         writeLink();
     });
 
@@ -92,6 +95,42 @@ $(document).ready(function () {
     $('#themeSwitch').on('click', function () {
         switchCSS({ "object": this });
         writeLink();
+    });
+
+    $('.gridBoxGenerator .button').each(function () {
+        $(this).append(`<div class='infoButton'>`);
+    });
+
+    $.get('md/modules.md', function (text) {
+        var converter = new showdown.Converter({
+            tasklists: 'true',
+            omitExtraWLInCodeBlocks: 'true',
+            tables: 'true',
+            headerLevelStart: 'true',
+            customizedHeaderId: true
+        })
+        var html = converter.makeHtml(text)
+        $(".infobar #moduleInfo").html(html);
+    });
+
+    $('.gridBoxGenerator .button .infoButton').on('click', function () {
+        $(this).parent().click();
+        let scrollTo = $(this).parent().attr('value').toLowerCase().replace('/', '_');
+        let infoBoxOpenAnim = anime({
+            targets: `aside.infobar`,
+            easing: 'easeInOutExpo',
+            left: 0
+        });
+
+        scrollToAnchor(scrollTo, (($(document).width() / 100) * 0.2));
+    });
+
+    $('aside.infobar .infobarCloser').on('click', function () {
+        let infoBoxOpenAnim = anime({
+            targets: 'aside.infobar',
+            easing: 'easeInOutExpo',
+            left: '-35vw'
+        })
     });
 
     $('.gridBoxGenerator .button:not(.disabled)').on('click', function () {
@@ -262,7 +301,7 @@ Array.prototype.insert = function (index, item) {
 function findInner(el) {
     let selectorArray = el.attr('class').split(" ");
     for (let i = 0; i < selectorArray.length; i++) {
-        if (selectorArray[i] == 'toolContainer') {
+        if (selectorArray[i].indexOf('toolContainer') != -1) {
             selectorArray[i] = '.toolContainerInner';
         } else {
             selectorArray[i] = `.${selectorArray[i]}`;
@@ -270,6 +309,7 @@ function findInner(el) {
     }
     return selectorArray.join("");
 }
+
 // Animations
 
 function toolContainerAnim(el, state) {
@@ -325,6 +365,26 @@ function moveFix() {
         });
     }
 }
+function scrollToAnchor(aid, aidOffset) {
+
+    let oldScrollTop = $('aside.infobar').scrollTop();
+
+    $('aside.infobar').scrollTop(0);
+
+    console.log($('html, body').scrollTop());
+
+    let scrollVal = ($(`h3#${aid}`).offset().top) - aidOffset - $('body').scrollTop();
+
+    $('aside.infobar').scrollTop(oldScrollTop);
+
+    let target = 'aside.infobar';
+    let scrollToAnimation = anime({
+        targets: `aside.infobar`,
+        easing: 'easeInOutExpo',
+        scrollTop: scrollVal - aidOffset
+    });
+}
+
 function switchCSS(option) {
     let state = '';
     let object = '';
@@ -365,6 +425,15 @@ function getSelectedModules() {
     }
 
     return returnString;
+}
+
+function readStringFromFileAtPath(pathOfFileToReadFrom) {
+    var request = new XMLHttpRequest();
+    request.open("GET", pathOfFileToReadFrom, false);
+    request.send(null);
+    var returnValue = request.responseText;
+
+    return returnValue;
 }
 
 function readLink() {

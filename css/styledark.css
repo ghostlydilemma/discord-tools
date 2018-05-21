@@ -4,3 +4,7 @@
     --backgroundColor: #212121;
     --navColor: #171717;
 }
+
+.infoButton{
+    background: url('../media/info.png');
+}

@@ -18,10 +18,10 @@
         <script src='node_modules/jquery/dist/jquery.min.js'></script>
         <script src='js/converter.js'></script>
         <script src='node_modules/clipboard/dist/clipboard.min.js'></script>
+        <script src='node_modules/showdown/dist/showdown.js'></script>
         <script src='js/highlight.pack.js'></script>
 
         <script>hljs.initHighlightingOnLoad();</script>
-
     </head>
 
     <body>
@@ -117,10 +117,16 @@
                     </div>
                     <div class='toolContainerInner customaGenerator'>
                         <div class='converter'>
-                            <p>This is a generator for the Customa Theme made by Ghostly Dilemma</p>
+                            <p>This is a generator for the Customa Theme made by Ghostly Dilemma
+                                <br/>Click on the Group to get more information about the seperate modules.</p>
                             <br/>
-                            <p>Base Themes</p>
-                            <hr>
+                            <div class="toolContainerSmall base">
+                                <p>Base Themes</p>
+                                <span class='arrow'>⇓</span>
+                            </div>
+                            <div class="toolContainerInner base">
+
+                            </div>
                             <div class='gridBoxGenerator base'>
                                 <div class="button disabled selected" value='Base/base'>Base Module</div>
                                 <div class="button disabled selected" value='Base/root'>Root Module</div>
@@ -140,7 +146,7 @@
                             <p>Chat Themes</p>
                             <hr>
                             <div class='gridBoxGenerator chat'>
-                                <div class="button disabled preview" value=''>New Edit Icon Module (Soon!)</div>
+                                <div class="button disabled preview" value='Chat/NEI'>New Edit Icon Module (Soon!)</div>
                                 <div class="button disabled preview" value=''>White Theme Support Module (Soon!)</div>
                                 <div class="button disabled preview" value=''>Title Wrapper Module (Soon!)</div>
                                 <div class="button" value='Chat/betterFileTypes'>Better File Type Module</div>
@@ -187,7 +193,7 @@
                             <br/>
                             <p>Generated Theme</p>
                             <hr>
-                            <div class="output" name=' customaRes' id='customaRes'>
+                            <div class="output" name='customaRes' id='customaRes'>
                                 <pre><code class="css">@import url('https://raw.githack.com/GhostlyDilemma/Customa/master/Base/base.m.css');
 @import url('https://raw.githack.com/GhostlyDilemma/Customa/master/Base/root.m.css');</code></pre>
                             </div>
@@ -197,7 +203,7 @@
                 </div>
                 <br>
             </main>
-            <main class='info '>
+            <main class='info'>
                 <p>Discord Tools, a project by
                     <a href='https://github.com/GhostlyDilemma' class='external'>Ghostly Dilemma</a>
                     <br/>
@@ -227,6 +233,12 @@
                     <br/>//TODO: Mobile
                 </p>
             </main>
+            <aside class='infobar'>
+                <div id='moduleInfo'>
+
+                </div>
+                <span class='infobarCloser'>X</span>
+            </aside>
         </div>
     </body>
 

@@ -17,7 +17,7 @@
 
 /* Fonts and Text Selection */
 
-h1, h2, li.logo, .arrow, textarea, .button{
+h1, h2, li.logo, .arrow, textarea, .button, aside{
     font-family: var(--headerFontFamily);
     font-weight: var(--headerFontWeight);
 }
@@ -212,6 +212,15 @@ a:focus{
     cursor: pointer;
 }
 
+.toolContainerSmall{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1% 0 0;
+    cursor: pointer;
+    border-bottom: 1px solid var(--textFontColor);
+}
+
 .arrow{
     font-size: 30px;
     transition: transform 200ms;
@@ -264,7 +273,6 @@ textarea:focus, textarea:hover{
     margin: 1% 0 0 0;
     display: grid;
     grid-template-columns: repeat(3, 33.3%);
-
 }
 
 .customaGenerator p{
@@ -280,7 +288,6 @@ textarea:focus, textarea:hover{
 .gridBoxGenerator .button:hover{
     background-color: var(--accentColorBright);
 }
-
 
 .gridBoxGenerator .button.selected{
     background-color: var(--accentColor);
@@ -303,4 +310,52 @@ textarea:focus, textarea:hover{
 .gridBoxGenerator .button.empty{
     cursor: default;
     border-color: transparent;
+}
+
+.infoButton{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    background: url('../media/infoWhite.png');
+    cursor: pointer;
+}
+
+#customaRes{
+    margin-top: 20px;
+}
+
+aside.infobar{
+    position: fixed;
+    left: -35vw;
+    top: 0;
+    height: 100vh;
+    width: 35vw;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 999;
+    overflow-y: scroll;
+}
+
+aside.infobar .infobarCloser{
+    position: absolute;
+    right: 4%;
+    top: 1%;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+}
+
+aside.infobar .infobarCloser:hover{
+    color: #ff3333;
+}
+
+aside.infobar #moduleInfo{
+    margin: 2% 4%;
+}
+
+aside.infobar img{
+    width: 100%;
+}
+
+aside.infobar p:nth-of-type(10), aside.infobar h3:nth-of-type(3){
+    text-decoration: line-through;
 }
