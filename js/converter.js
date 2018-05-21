@@ -122,7 +122,7 @@ $(document).ready(function () {
             left: 0
         });
 
-        scrollToAnchor(scrollTo, (($(document).width() / 100) * 0.2));
+        scrollToAnchor(scrollTo, (($(document).width() / 100) * 0.4));
     });
 
     $('aside.infobar .infobarCloser').on('click', function () {
@@ -366,22 +366,16 @@ function moveFix() {
     }
 }
 function scrollToAnchor(aid, aidOffset) {
-
     let oldScrollTop = $('aside.infobar').scrollTop();
-
     $('aside.infobar').scrollTop(0);
-
-    console.log($('html, body').scrollTop());
-
-    let scrollVal = ($(`h3#${aid}`).offset().top) - aidOffset - $('body').scrollTop();
-
+    let scrollVal = ($(`h3#${aid}`).offset().top) - aidOffset - $('html, body').scrollTop();
     $('aside.infobar').scrollTop(oldScrollTop);
 
     let target = 'aside.infobar';
     let scrollToAnimation = anime({
         targets: `aside.infobar`,
         easing: 'easeInOutExpo',
-        scrollTop: scrollVal - aidOffset
+        scrollTop: scrollVal
     });
 }
 
