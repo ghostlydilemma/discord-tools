@@ -3,6 +3,7 @@
     --textFontColor: #ffffff;
     --backgroundColor: #212121;
     --navColor: #171717;
+    --floatingUIColor: rgba(0,0,0,0.9);
 }
 
 .infoButton{

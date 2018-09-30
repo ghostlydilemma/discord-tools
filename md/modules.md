@@ -25,7 +25,7 @@ The second module that is needed for the theme. This one holds all the variables
 
 <br/>
 
-### Updates Module (Development currently paused) {base_updates}
+### Updates Module (Development currently paused) {base_updates_paused}
 
 Shows which modules got updates recently, what got updated
 
@@ -79,4 +79,36 @@ A module to fix problems with the new canary versions
 
 <br/>
 
-### New Edit Icon Module {chat_nei}
+### New Edit Icon Module (WIP) {chat_nei_wip}
+
+Makes you able to change the icon of a module
+
+<br/>
+
+### White Theme Support Module (WIP) {chat_wts_wip}
+
+Makes it possible to enable the white theme in Discord, because of the many different colors Discord uses for their texts, expect a longer delay on this module. :c
+
+<br/>
+
+### Title Wrapper Module (WIP) {chat_titlewrapper_wip}
+
+Colors the entire Title Wrapper according to the default online state in Discord (Because of some bugs concerrning the guilds wrapper).
+
+<br/>
+
+### Better File Types Module {chat_betterfiletypes}
+
+Implements new File Type Images as seen in the image.
+
+<br/>
+
+![](media/Theme_BetterFileTypes.png)
+
+<br/>
+
+### Channel Divider Module {chat_channeldivider}
+
+Adds a better Channel Divider 
+
+<br/>

@@ -115,11 +115,14 @@ $(document).ready(function () {
 
     $('.gridBoxGenerator .button .infoButton').on('click', function () {
         $(this).parent().click();
-        let scrollTo = $(this).parent().attr('value').toLowerCase().replace('/', '_');
+        let scrollTo = $(this).parent().attr('value').toLowerCase().replace(new RegExp('/', 'g'), '_');
         let infoBoxOpenAnim = anime({
             targets: `aside.infobar`,
             easing: 'easeInOutExpo',
-            left: 0
+            left: 0,
+            complete: function (i, el) {
+                $('aside.infobar .infobarCloser').fadeIn(200);
+            }
         });
 
         scrollToAnchor(scrollTo, (($(document).width() / 100) * 0.4));
@@ -127,6 +130,9 @@ $(document).ready(function () {
 
     $('aside.infobar .infobarCloser').on('click', function () {
         let infoBoxOpenAnim = anime({
+            begin: function (i, el) {
+                $('aside.infobar .infobarCloser').fadeOut(200);
+            },
             targets: 'aside.infobar',
             easing: 'easeInOutExpo',
             left: '-35vw'
@@ -415,7 +421,7 @@ function getSelectedModules() {
     let selectedButtons = $('.gridBoxGenerator .button.selected');
     let returnString = '';
     for (let i = 0; i < selectedButtons.length; i++) {
-        returnString += `@import url('https://raw.githack.com/GhostlyDilemma/Customa/master/${$(selectedButtons[i]).attr('value')}.m.css');\n`;
+        returnString += `@import url('https://raw.githack.com/Customa/Customa/master/${$(selectedButtons[i]).attr('value')}.m.css');\n`;
     }
 
     return returnString;
