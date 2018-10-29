@@ -365,3 +365,99 @@ aside.infobar h3[id*='paused'], aside.infobar h3[id*='paused'] + p{
 aside.infobar h3[id*='wip'], aside.infobar h3[id*='wip'] + p{
     color: grey;
 }
+
+.sizer{
+    width: 70vw;
+}
+
+.showMobile{
+    display: none;
+    color: #ff3333;
+}
+
+@media only screen and (max-width: 1160px){
+    /* .toolContainerInner.customaGenerator{
+        display: none;
+    } */
+
+    .hideMobile{
+        display: none;
+    }
+
+    .showMobile{
+        display: inline;
+    }
+
+    .gridBoxGenerator{
+        grid-template-columns: repeat(1, 99.9%);
+    }
+
+    aside.infobar{
+        position: fixed;
+        left: -100vw;
+        top: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: var(--floatingUIColor);
+        z-index: 999;
+        overflow-y: scroll;
+    }
+
+    aside.infobar .infobarCloser{
+        left: auto;
+        right: 3vw;
+    }
+
+}
+
+@media only screen and (max-width: 610px){
+   .toolContainer .arrow{
+        opacity: 0;
+    } 
+}
+
+@media only screen and (max-width: 600px){
+    .toolContainer h1{
+        font-size: 22px;
+    }
+
+    .toolContainer .arrow{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    :root{
+        --textFontSize: 16px;
+    }
+
+    .toolContainer h1, textarea{
+        font-size: 16px!important;
+    }
+
+    textarea{
+        line-height: 14px;
+    }
+
+    nav ul, nav ul .middleBox{
+        flex-direction: column;
+    }
+
+    li.logo, .rightBox{
+        align-self: center;
+        margin: 5px 0;
+    }
+
+    .middleBox{
+        align-self: center;
+        text-align: center;
+    }
+
+    .middleBox li{
+        margin: 5px 0;
+    }
+
+    main{
+        margin-top: 200px;
+    }
+}

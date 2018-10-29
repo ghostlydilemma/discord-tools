@@ -129,13 +129,19 @@ $(document).ready(function () {
     });
 
     $('aside.infobar .infobarCloser').on('click', function () {
+        let left = 0;
+        if ($(window).width() > 1160) {
+            left = '-35vw';
+        } else {
+            left = '-100vw';
+        }
         let infoBoxOpenAnim = anime({
             begin: function (i, el) {
                 $('aside.infobar .infobarCloser').fadeOut(200);
             },
             targets: 'aside.infobar',
             easing: 'easeInOutExpo',
-            left: '-35vw'
+            left: left
         })
     });
 
@@ -217,15 +223,7 @@ function emojiText(input) {
  * @returns {String} Return field, which stores the converted text
  */
 function clappify(input) {
-    input = input.split(" ");
-    let clappifiedInput = "";
-    for (let i = 0; i < input.length; i++) {
-        clappifiedInput += input[i];
-        if (i < input.length - 1) {
-            clappifiedInput += " :clap: ";
-        }
-    }
-    return clappifiedInput;
+    return clappifyDeluxe(input, ":clap:");
 }
 /**
  * Adds a custom emote to the input text
