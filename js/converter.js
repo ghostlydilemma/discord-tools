@@ -232,15 +232,7 @@ function clappify(input) {
  * @returns {String} Return field, which stores the converted text
  */
 function clappifyDeluxe(input, emote) {
-    input = input.split(" ");
-    let clappifiedInput = "";
-    for (let i = 0; i < input.length; i++) {
-        clappifiedInput += input[i];
-        if (i < input.length - 1) {
-            clappifiedInput += ` ${emote} `;
-        }
-    }
-    return clappifiedInput;
+    return input.replace(/ |$/g, ` ${emote} `);
 }
 /**
  * Checks if a String is a number
