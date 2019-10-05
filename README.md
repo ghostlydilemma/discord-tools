@@ -1,2 +1,2 @@
 # Discord-Tools
-Some Handy tools (mostly for emote spam) for Discord
+Some handy tools (mostly for emote spam) for [Discord](https://discordapp.com).
