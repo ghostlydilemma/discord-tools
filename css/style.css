@@ -1,463 +1,457 @@
-:root{
-    --headerFontFamily: 'Montserrat', sans-serif; 
-    --headerFontWeight: 400;
-    --textFontFamily: 'Raleway', sans-serif;
-    --textFontSize: 20px;
-    --selectionColor: rgba(0,0,0,0.2);
-    --backgroundColor: #ffffff;
-    --navColor: #ffffff;
-    --textFontColor: #000000;
-    --textHoverFontColor: #ffffff;
-    --textInteralColor: #ff3333;
-    --textExternalColor: #80b3ff;
-    --accentColor: #D81B60;
-    --accentColorBright: rgba(216, 27, 96, 0.6);
-    --floatingUIColor: rgba(255,255,255,0.9);
+:root {
+  --headerFontFamily: 'Montserrat', sans-serif; 
+  --headerFontWeight: 400;
+  --textFontFamily: 'Raleway', sans-serif;
+  --textFontSize: 20px;
+  --selectionColor: rgba(0,0,0,0.2);
+  --backgroundColor: #ffffff;
+  --navColor: #ffffff;
+  --textFontColor: #000000;
+  --textHoverFontColor: #ffffff;
+  --textInteralColor: #ff3333;
+  --textExternalColor: #80b3ff;
+  --accentColor: #D81B60;
+  --accentColorBright: rgba(216, 27, 96, 0.6);
+  --floatingUIColor: rgba(255,255,255,0.9);
 }
-
 
 /* Fonts and Text Selection */
 
-h1, h2, li.logo, .arrow, textarea, .button, aside{
-    font-family: var(--headerFontFamily);
-    font-weight: var(--headerFontWeight);
+h1, h2, li.logo, .arrow, textarea, .button, aside {
+  font-family: var(--headerFontFamily);
+  font-weight: var(--headerFontWeight);
 }
 
 pre code {
-    font-family: 'Fira Mono';
+  font-family: 'Fira Mono', monospace;
 }
 
-p, li:not(.logo){
-    font-family: var(--textFontFamily);
-    font-size: var(--textFontSize);
+p, li:not(.logo) {
+  font-family: var(--textFontFamily);
+  font-size: var(--textFontSize);
 }
 
-::selection{
-    background-color: var(--selectionColor);
+::selection {
+  background-color: var(--selectionColor);
 }
 
-::-moz-selection{
-    background-color: var(--selectionColor);
+::-moz-selection {
+  background-color: var(--selectionColor);
 }
 
-textarea:read-only::selection{
-    background-color: transparent;
-    color: var(--accentColor);
+textarea:read-only::selection {
+  background-color: transparent;
+  color: var(--accentColor);
 }
 
-textarea:-moz-read-only::-moz-selection{
-    background-color: transparent;
-    color: var(--accentColor);
+textarea:-moz-read-only::-moz-selection {
+  background-color: transparent;
+  color: var(--accentColor);
 }
 
 /* Transitions */
 
-*:not(.toolContainerInner):not(.mainWrap):not(main):not(li#siteSwitch){
-    transition: all 200ms;
+*:not(.toolContainerInner):not(.mainWrap):not(main):not(li#siteSwitch) {
+  transition: all 200ms;
 }
 
-body, .toolContainer h1, .toolContainer .arrow, .toolContainer, aside.infobar .infobarCloser{
-    transition: all 200ms;
+body, .toolContainer h1, .toolContainer .arrow, .toolContainer, aside.infobar .infobarCloser {
+  transition: all 200ms;
 }
 
 /* Margins */
 
 * {
-    margin: 0;
+  margin: 0;
 }
 
-main{
-    margin: 120px 5% 0 5%;
+main {
+  margin: 120px 5% 0 5%;
 }
 
 /* Color */
 
-a.internal{
-    color: var(--textInteralColor);
+a.internal {
+  color: var(--textInteralColor);
 }
 
-a.external{
-    color: var(--textExternalColor);
+a.external {
+  color: var(--textExternalColor);
 }
 
-a:hover, li:not(.logo):hover{
-    color: var(--accentColor);
+a:hover, li:not(.logo):hover {
+  color: var(--accentColor);
 }
 
-a, li:not(.logo){
-    text-decoration: none;
-    color: var(--textFontColor);
-    transition: 200ms color;
-    cursor: pointer;
+a, li:not(.logo) {
+  text-decoration: none;
+  color: var(--textFontColor);
+  transition: 200ms color;
+  cursor: pointer;
 }
 
-.button{
-    border: 3px solid var(--accentColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 46px;
-    width: 100px;
-    margin: 1% 0;
-    color: var(--accentColor);
-    transition: 200ms background-color, 200ms color;
-    cursor: pointer;
+.button {
+  border: 3px solid var(--accentColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  width: 100px;
+  margin: 1% 0;
+  color: var(--accentColor);
+  transition: 200ms background-color, 200ms color;
+  cursor: pointer;
 }
 
-.button:hover{
-    background-color: var(--accentColor);
-    color: var(--textHoverFontColor);
+.button:hover {
+  background-color: var(--accentColor);
+  color: var(--textHoverFontColor);
 }
 
-.mainWrap{
-    display: flex;
-    flex-direction: row;
-    width: 200vw;
+.mainWrap {
+  display: flex;
+  flex-direction: row;
+  width: 200vw;
 }
 
-body{
-    overflow-x: hidden;
-    background-color: var(--backgroundColor);
-    color: var(--textFontColor);
+body {
+  overflow-x: hidden;
+  background-color: var(--backgroundColor);
+  color: var(--textFontColor);
 }
 
-.home, .info{
-    width: 100vw;
+.home, .info {
+  width: 100vw;
 }
 
-textarea:focus, input:focus{
-    outline: none;
+textarea:focus, input:focus {
+  outline: none;
 }
 
-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-nav ul{
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    padding: 1%;
-    border-radius: 10px;
-    width: 90%;
-    top: 10px;
-    background-color: var(--navColor);
-    opacity: 1;
-    border-bottom: 2px solid grey;
-    z-index: 999;
+nav ul {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  padding: 1%;
+  border-radius: 10px;
+  width: 90%;
+  top: 10px;
+  background-color: var(--navColor);
+  opacity: 1;
+  border-bottom: 2px solid grey;
+  z-index: 999;
 }
 
-footer nav ul{
-    top: auto;
-    bottom: 10px;
+footer nav ul {
+  top: auto;
+  bottom: 10px;
 }
 
-ul.components{
-    padding: 0;
+ul.components {
+  padding: 0;
 }
 
-li{
-    list-style-type: none;
+li {
+  list-style-type: none;
 }
 
-nav li:not(.logo){
-    cursor: pointer;
-    flex-grow: 2;
-    font-size: 16px;
-    text-transform: uppercase;
+nav li:not(.logo) {
+  cursor: pointer;
+  flex-grow: 2;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
-.logo{
-    font-size: 30px;
+.logo {
+  font-size: 30px;
 }
 
-.middleBox, .rightBox{
-    margin-left: 2%;
+.middleBox, .rightBox {
+  margin-left: 2%;
 }
 
-a:focus{
-    outline: 0;
+a:focus {
+  outline: 0;
 }
 
-.middleBox{
-    align-self: flex-end;
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: row;
-    flex-grow: 18;
+.middleBox {
+  align-self: flex-end;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 18;
 }
 
-.externalLogo img{
-    width: 30px;
-    position: relative;
-    margin-left: -58px;
-    margin-right: 25px;
-    margin-bottom: 5px;
-    opacity: 0.5;
-    z-index: 1;
+.externalLogo img {
+  width: 30px;
+  position: relative;
+  margin-left: -58px;
+  margin-right: 25px;
+  margin-bottom: 5px;
+  opacity: 0.5;
+  z-index: 1;
 }
 
-.flexGrow{
-    flex-grow: 100;
+.flexGrow {
+  flex-grow: 100;
 }
 
-.toolContainer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2%;
-    padding: 1%;
-    border-bottom: 5px solid var(--textFontColor);
-    cursor: pointer;
+.toolContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+  padding: 1%;
+  border-bottom: 5px solid var(--textFontColor);
+  cursor: pointer;
 }
 
-.toolContainerSmall{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1% 0 0;
-    cursor: pointer;
-    border-bottom: 1px solid var(--textFontColor);
+.toolContainerSmall {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1% 0 0;
+  cursor: pointer;
+  border-bottom: 1px solid var(--textFontColor);
 }
 
-.arrow{
-    font-size: 30px;
-    transition: transform 200ms;
-    transform: rotateX(0deg);
+.arrow {
+  font-size: 30px;
+  transition: transform 200ms;
+  transform: rotateX(0deg);
 }
 
 .arrow.upsidedown {
-    transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
-.toolContainerInner{
-    background-color: rgba(0,0,0,0.02);
-    overflow-y: auto;
-    height: 0;
+.toolContainerInner {
+  background-color: rgba(0,0,0,0.02);
+  overflow-y: auto;
+  height: 0;
 }
 
-.toolContainerInner .converter{
-    margin: 1% 1% 0 1%;
+.toolContainerInner .converter {
+  margin: 1% 1% 0 1%;
 }
 
-textarea{
-    color: var(--textFontColor);
-    margin-top: 1%;
-    width: 100%;
-    line-height: 20px;
-    font-size: 20px;
-    border: none;
-    background-color: transparent;
-    border-bottom: 3px solid var(--textFontColor);
-    resize: none;
-    transition: 200ms border-color;
+textarea {
+  color: var(--textFontColor);
+  margin-top: 1%;
+  width: 100%;
+  line-height: 20px;
+  font-size: 20px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 3px solid var(--textFontColor);
+  resize: none;
+  transition: 200ms border-color;
 }
 
-textarea:focus, textarea:hover{
-    border-color: var(--accentColor);
+textarea:focus, textarea:hover {
+  border-color: var(--accentColor);
 }
 
-.output{
-    border: none;
-    background-color: rgba(0,0,0,0.02);
-    resize: vertical;
+.output {
+  border: none;
+  background-color: rgba(0,0,0,0.02);
+  resize: vertical;
 }
 
-.toolContainer:hover h1, .toolContainer:hover .arrow, .toolContainer:hover{
-    color: var(--accentColor);
-    border-color: var(--accentColor);
+.toolContainer:hover h1, .toolContainer:hover .arrow, .toolContainer:hover {
+  color: var(--accentColor);
+  border-color: var(--accentColor);
 }
 
-.gridBoxGenerator{
-    margin: 1% 0 0 0;
-    display: grid;
-    grid-template-columns: repeat(3, 33.3%);
+.gridBoxGenerator {
+  margin: 1% 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%);
 }
 
-.customaGenerator p{
-    margin-left: 12px;
+.customaGenerator p {
+  margin-left: 12px;
 }
 
-.gridBoxGenerator .button{
-    width: 90%;
-    margin: 1% auto;
-    text-align: center;
+.gridBoxGenerator .button {
+  width: 90%;
+  margin: 1% auto;
+  text-align: center;
 }
 
-.gridBoxGenerator .button:hover{
-    background-color: var(--accentColorBright);
+.gridBoxGenerator .button:hover {
+  background-color: var(--accentColorBright);
 }
 
-.gridBoxGenerator .button.selected{
-    background-color: var(--accentColor);
-    border-color: var(--accentColor);
-    color: var(--textHoverFontColor);
+.gridBoxGenerator .button.selected {
+  background-color: var(--accentColor);
+  border-color: var(--accentColor);
+  color: var(--textHoverFontColor);
 }
 
-.gridBoxGenerator .button.disabled{
-    cursor: not-allowed;
-    background-color: #E0E0E0;
-    border-color: #E0E0E0;
-    color: #212121;
+.gridBoxGenerator .button.disabled {
+  cursor: not-allowed;
+  background-color: #E0E0E0;
+  border-color: #E0E0E0;
+  color: #212121;
 }
 
-.gridBoxGenerator .button.preview{
-    border-color: #9E9E9E;
-    background-color: #9E9E9E;
+.gridBoxGenerator .button.preview {
+  border-color: #9E9E9E;
+  background-color: #9E9E9E;
 }
 
-.gridBoxGenerator .button.empty{
-    cursor: default;
-    border-color: transparent;
+.gridBoxGenerator .button.empty {
+  cursor: default;
+  border-color: transparent;
 }
 
-.infoButton{
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-    background: url('../media/infoWhite.png');
-    cursor: pointer;
+.infoButton {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  background: url('../media/infoWhite.png');
+  cursor: pointer;
 }
 
-#customaRes{
-    margin-top: 20px;
+#customaRes {
+  margin-top: 20px;
 }
 
-aside.infobar{
+aside.infobar {
+  position: fixed;
+  left: -35vw;
+  top: 0;
+  height: 100vh;
+  width: 35vw;
+  background-color: var(--floatingUIColor);
+  z-index: 999;
+  overflow-y: scroll;
+}
+
+aside.infobar .infobarCloser {
+  position: fixed;
+  left: 32vw;
+  top: 1%;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  display: none;
+}
+
+aside.infobar .infobarCloser:hover {
+  color: #ff3333;
+}
+
+aside.infobar #moduleInfo {
+  margin: 2% 4%;
+}
+
+aside.infobar img {
+  width: 100%;
+}
+
+aside.infobar h3[id*='paused'], aside.infobar h3[id*='paused'] + p {
+  text-decoration: line-through;
+}
+
+aside.infobar h3[id*='wip'], aside.infobar h3[id*='wip'] + p {
+  color: grey;
+}
+
+.sizer {
+  width: 70vw;
+}
+
+.showMobile {
+  display: none;
+  color: #ff3333;
+}
+
+@media only screen and (max-width: 1160px) {
+  .hideMobile {
+    display: none;
+  }
+
+  .showMobile {
+    display: inline;
+  }
+
+  .gridBoxGenerator {
+    grid-template-columns: repeat(1, 99.9%);
+  }
+
+  aside.infobar {
     position: fixed;
-    left: -35vw;
+    left: -100vw;
     top: 0;
     height: 100vh;
-    width: 35vw;
+    width: 100vw;
     background-color: var(--floatingUIColor);
     z-index: 999;
     overflow-y: scroll;
+  }
+
+  aside.infobar .infobarCloser {
+    left: auto;
+    right: 3vw;
+  }
 }
 
-aside.infobar .infobarCloser{
-    position: fixed;
-    left: 32vw;
-    top: 1%;
-    font-size: 24px;
-    cursor: pointer;
-    user-select: none;
+@media only screen and (max-width: 610px) {
+   .toolContainer .arrow {
+    opacity: 0;
+  } 
+}
+
+@media only screen and (max-width: 600px) {
+  .toolContainer h1 {
+    font-size: 22px;
+  }
+
+  .toolContainer .arrow {
     display: none;
+  }
 }
 
-aside.infobar .infobarCloser:hover{
-    color: #ff3333;
-}
+@media only screen and (max-width: 480px) {
+  :root {
+    --textFontSize: 16px;
+  }
 
-aside.infobar #moduleInfo{
-    margin: 2% 4%;
-}
+  .toolContainer h1, textarea {
+    font-size: 16px!important;
+  }
 
-aside.infobar img{
-    width: 100%;
-}
+  textarea {
+    line-height: 14px;
+  }
 
-aside.infobar h3[id*='paused'], aside.infobar h3[id*='paused'] + p{
-    text-decoration: line-through;
-}
+  nav ul, nav ul .middleBox {
+    flex-direction: column;
+  }
 
-aside.infobar h3[id*='wip'], aside.infobar h3[id*='wip'] + p{
-    color: grey;
-}
+  li.logo, .rightBox {
+    align-self: center;
+    margin: 5px 0;
+  }
 
-.sizer{
-    width: 70vw;
-}
+  .middleBox {
+    align-self: center;
+    text-align: center;
+  }
 
-.showMobile{
-    display: none;
-    color: #ff3333;
-}
+  .middleBox li {
+    margin: 5px 0;
+  }
 
-@media only screen and (max-width: 1160px){
-    /* .toolContainerInner.customaGenerator{
-        display: none;
-    } */
-
-    .hideMobile{
-        display: none;
-    }
-
-    .showMobile{
-        display: inline;
-    }
-
-    .gridBoxGenerator{
-        grid-template-columns: repeat(1, 99.9%);
-    }
-
-    aside.infobar{
-        position: fixed;
-        left: -100vw;
-        top: 0;
-        height: 100vh;
-        width: 100vw;
-        background-color: var(--floatingUIColor);
-        z-index: 999;
-        overflow-y: scroll;
-    }
-
-    aside.infobar .infobarCloser{
-        left: auto;
-        right: 3vw;
-    }
-
-}
-
-@media only screen and (max-width: 610px){
-   .toolContainer .arrow{
-        opacity: 0;
-    } 
-}
-
-@media only screen and (max-width: 600px){
-    .toolContainer h1{
-        font-size: 22px;
-    }
-
-    .toolContainer .arrow{
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 480px){
-    :root{
-        --textFontSize: 16px;
-    }
-
-    .toolContainer h1, textarea{
-        font-size: 16px!important;
-    }
-
-    textarea{
-        line-height: 14px;
-    }
-
-    nav ul, nav ul .middleBox{
-        flex-direction: column;
-    }
-
-    li.logo, .rightBox{
-        align-self: center;
-        margin: 5px 0;
-    }
-
-    .middleBox{
-        align-self: center;
-        text-align: center;
-    }
-
-    .middleBox li{
-        margin: 5px 0;
-    }
-
-    main{
-        margin-top: 200px;
-    }
+  main {
+    margin-top: 200px;
+  }
 }
