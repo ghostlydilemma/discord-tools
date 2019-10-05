@@ -1,2 +1,2 @@
 # Discord-Tools
-Tools for Discord
+Some Handy tools (mostly for emote spam) for Discord
