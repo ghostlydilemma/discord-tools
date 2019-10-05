@@ -465,7 +465,6 @@ function writeLink() {
     let genLink = `?gen=`;
     for (let i = 0; i < generators.length; i++) {
         genLink += generators[i];
-        console.log(generators[i]);
         if (generators.length != 1 && i != generators.length - 1) {
             genLink += '&';
         }
